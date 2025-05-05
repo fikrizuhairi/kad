@@ -1,140 +1,128 @@
 <!DOCTYPE html>
-<html lang="ms">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jemputan Perkahwinan - Siti Ismahani Izzati & Muhammad Fikri</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Jemputan Perkahwinan Ismahani & Fikri</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
     body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom, #fff0f5 0%, #ffe4ec 100%);
-      color: #4a4a4a;
-      scroll-behavior: smooth;
+      background: #fff0f5;
+      font-family: 'Segoe UI', sans-serif;
+      color: #4a2c2a;
     }
-    header {
+    .hero {
+      background: url('https://via.placeholder.com/800x500?text=Gambar+Pasangan') no-repeat center center;
+      background-size: cover;
+      height: 100vh;
+      position: relative;
+    }
+    .overlay {
+      background: rgba(255, 255, 255, 0.8);
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
       text-align: center;
-      padding: 60px 20px;
-      background: url('https://i.ibb.co/gPJLbz9/pink-bg.png') no-repeat center center/cover;
-      color: #fff;
+      padding: 2rem;
     }
-    header h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3em;
-      color: #fff;
+    .section {
+      padding: 4rem 2rem;
     }
-    header p {
-      font-size: 1.2em;
-      margin-top: 10px;
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
     }
-    section {
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .event {
-      background: #ffffffcc;
-      margin: 20px auto;
-      padding: 25px;
-      max-width: 600px;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      border: 1px solid #f6c1d0;
-    }
-    .event h2 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2em;
-      color: #c8467d;
-      margin-bottom: 10px;
-    }
-    .btn {
-      display: inline-block;
-      margin: 15px 10px;
-      padding: 12px 25px;
-      background: #c8467d;
+    .btn-pink {
+      background-color: #ffc0cb;
       color: white;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
-    .btn:hover {
-      background: #a93b68;
-    }
-    .map iframe {
-      border-radius: 12px;
       border: none;
     }
-    footer {
-      background: #fdd5e2;
-      padding: 30px 20px;
-      text-align: center;
-      font-size: 0.95em;
-      color: #555;
-    }
-    .audio-wrapper {
-      display: none;
+    iframe {
+      width: 100%;
+      border: none;
+      height: 300px;
     }
   </style>
 </head>
 <body>
-  <!-- Lagu Latar dari YouTube -->
-  <div class="audio-wrapper">
-    <iframe width="0" height="0" src="https://www.youtube.com/embed/bCMfRnHHHD0?autoplay=1&loop=1&playlist=bCMfRnHHHD0" frameborder="0" allow="autoplay"></iframe>
+  <div class="hero">
+    <div class="overlay">
+      <h1 class="display-4">Siti Ismahani Izzati & Muhammad Fikri</h1>
+      <p class="lead">1 - 3 Januari 2026 | Rumah Pengantin Perempuan</p>
+      <a href="#details" class="btn btn-pink mt-3">Lihat Jemputan</a>
+    </div>
   </div>
 
-  <header>
-    <h1>Siti Ismahani Izzati & Muhammad Fikri</h1>
-    <p>Dengan penuh kesyukuran, kami menjemput anda ke majlis perkahwinan kami</p>
-  </header>
-
-  <section>
-    <div class="event">
-      <h2>Malam Berinai</h2>
-      <p>1 Januari 2026 (Khamis)</p>
-      <p>Di rumah pengantin perempuan</p>
+  <section class="section bg-white text-center" id="details">
+    <h2 class="section-title">Aturcara Majlis</h2>
+    <div class="container">
+      <ul class="list-unstyled">
+        <li><strong>Malam Berinai:</strong> Khamis, 1 Januari 2026</li>
+        <li><strong>Akad Nikah:</strong> Jumaat, 2 Januari 2026</li>
+        <li><strong>Majlis Bersanding:</strong> Sabtu, 3 Januari 2026</li>
+      </ul>
     </div>
-
-    <div class="event">
-      <h2>Akad Nikah</h2>
-      <p>2 Januari 2026 (Jumaat)</p>
-      <p>Di rumah pengantin perempuan</p>
-    </div>
-
-    <div class="event">
-      <h2>Majlis Bersanding</h2>
-      <p>3 Januari 2026 (Sabtu)</p>
-      <p>Di rumah pengantin perempuan</p>
-    </div>
-
-    <div class="event">
-      <h2>Lokasi</h2>
-      <p>📍 4°36'58.8"N 103°26'32.4"E</p>
-      <div class="map">
-        <iframe
-          src="https://maps.google.com/maps?q=4.616333,103.442333&z=15&output=embed"
-          width="100%"
-          height="250"
-          allowfullscreen=""
-        ></iframe>
-      </div>
-    </div>
-
-    <a href="https://wa.me/601131201544?text=Assalamualaikum%2C%20saya%20ingin%20membuat%20RSVP%20untuk%20majlis%20perkahwinan%20Ismahani%20%26%20Fikri." class="btn" target="_blank">RSVP</a>
-    <a href="#" class="btn">Ucapan</a>
   </section>
 
-  <section>
-    <h2 style="font-family: 'Great Vibes', cursive; font-size: 2em; color: #c8467d;">Gambar & Video Pasangan</h2>
-    <p>(Akan dimasukkan kemudian)</p>
+  <section class="section bg-light text-center">
+    <h2 class="section-title">Lokasi</h2>
+    <div class="container">
+      <p>Rumah pengantin perempuan<br/>Koordinat: 4°36'58.8"N 103°26'32.4"E</p>
+      <iframe src="https://www.google.com/maps?q=4.616333,103.442333&output=embed"></iframe>
+    </div>
   </section>
 
-  <footer>
-    <p>Terima kasih atas doa dan kehadiran anda. Semoga majlis ini diberkati oleh Allah SWT.</p>
+  <section class="section bg-white text-center">
+    <h2 class="section-title">RSVP</h2>
+    <div class="container">
+      <form>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Nama Penuh" required>
+        </div>
+        <div class="mb-3">
+          <input type="number" class="form-control" placeholder="Jumlah Kehadiran" required>
+        </div>
+        <div class="mb-3">
+          <select class="form-select">
+            <option value="">Pilih majlis yang dihadiri</option>
+            <option value="berinai">Malam Berinai</option>
+            <option value="akad">Akad Nikah</option>
+            <option value="sanding">Majlis Bersanding</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-pink">Hantar RSVP</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="section bg-light text-center">
+    <h2 class="section-title">Ucapan & Doa</h2>
+    <div class="container">
+      <form>
+        <div class="mb-3">
+          <textarea class="form-control" rows="4" placeholder="Ucapan anda..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-pink">Hantar Ucapan</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="text-center py-4 bg-white">
+    <p class="mb-0">&copy; 2026 Siti Ismahani & Fikri | Dibuat dengan Kasih Sayang</p>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.querySelectorAll('form').forEach(form => {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Terima kasih atas respon anda!');
+        form.reset();
+      });
+    });
+  </script>
 </body>
 </html>
