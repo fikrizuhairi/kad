@@ -10,39 +10,120 @@
     :root{--accent:#a67c52;--muted:#6b7280;--glass:rgba(255,255,255,0.75)}
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Poppins',sans-serif;background:linear-gradient(180deg,#f8f6f4 0%,#ffffff 100%);color:#111;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
     .app{max-width:420px;margin:auto;overflow:hidden;position:relative;min-height:100vh;scroll-snap-type:y mandatory;overflow-y:scroll;-webkit-overflow-scrolling:touch;padding-bottom:120px}
+
     section{scroll-snap-align:start;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative}
+
     .bg-video img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1}
+
     .intro-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;color:#cc5500;z-index:2;text-shadow:2px 2px 4px rgba(0,0,0,0.3)}
     .intro-text .kecil{font-family:'Playfair Display',serif;font-size:14px;color:#000;margin-bottom:6px;font-weight:400;text-shadow:none}
     .intro-text .besar{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;letter-spacing:1px;line-height:1.2}
     .intro-text .besar span{display:block}
     .intro-text .tarikh{font-family:'Poppins',sans-serif;font-size:16px;color:#222;margin-top:10px;font-weight:500;text-shadow:none}
     .intro-text .lokasi{font-family:'Poppins',sans-serif;font-size:14px;color:#222;margin-top:3px;font-weight:500;text-shadow:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
     .content{background:rgba(255,255,255,0.9);backdrop-filter:blur(6px);border-radius:16px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,0.05);position:relative;z-index:3;margin:20px;max-width:420px}
+
     .parent-name,.couple-name{font-family:'Playfair Display',serif;font-size:18px;color:#2b2b2b;margin-bottom:8px;text-align:center;font-weight:700}
+
     h2{font-size:18px;font-weight:600;color:var(--accent);margin:12px 0 8px;text-align:center}
     p{font-size:15px;color:#222;line-height:1.6;margin-bottom:8px;text-align:center}
+
+    .btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:#fff;padding:12px 20px;border-radius:12px;font-weight:600;text-decoration:none;margin:6px auto;text-align:center;border:none;transition:0.2s;width:100%;max-width:300px}
+    .btn i{font-size:18px}
+    .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+    .btn:hover{opacity:0.9}
+
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
     .grid img{width:100%;height:90px;object-fit:cover;border-radius:8px;cursor:pointer;transition:0.3s}
     .grid img:hover{opacity:0.9;transform:scale(1.03)}
+
     .modal{display:none;position:fixed;z-index:999;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgba(0,0,0,0.8)}
     .modal-content{margin:auto;display:block;max-width:90%;max-height:90%;border-radius:10px}
     .close{position:absolute;top:15px;right:25px;color:white;font-size:30px;font-weight:bold;cursor:pointer}
+
     .countdown{display:flex;justify-content:center;gap:8px;margin-top:12px}
     .countdown div{background:#f1f1f1;padding:8px 10px;border-radius:8px;min-width:54px}
     .countdown .num{font-weight:700;font-size:16px}
     .countdown .lbl{font-size:11px;color:var(--muted)}
-    .bottom-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:10px;z-index:50;width:calc(100% - 60px);max-width:400px;background:rgba(0,0,0,0.7);border-radius:12px;padding:8px 8px;box-shadow:0 6px 14px rgba(0,0,0,0.08);display:flex;gap:12px;align-items:center;justify-content:space-around;overflow:visible}
-    .bottom-bar .icon-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;background:transparent;color:#fff;font-size:20px;text-decoration:none;gap:4px;cursor:pointer}
+
+    footer{font-size:12px;color:var(--muted);margin-top:20px;text-align:center}
+
+    /* bottom bar refined */
+    .app { padding-bottom: 96px; } /* ensure content not covered by bar */
+    .bottom-bar{
+      position:fixed;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:12px;
+      z-index:1200;
+      width:calc(100% - 32px);
+      max-width:420px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0.28));
+      backdrop-filter: blur(6px);
+      border-radius:14px;
+      padding:8px 10px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.18);
+      display:flex;
+      gap:6px;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .bottom-bar .icon-btn{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      color:#fff;
+      text-decoration:none;
+      cursor:pointer;
+      padding:8px 6px;
+      border-radius:10px;
+      transition:transform .12s ease, background .12s ease, opacity .12s ease;
+      user-select:none;
+    }
+    .bottom-bar .icon-btn:active{ transform:translateY(1px); }
+    .bottom-bar .icon-btn:focus{ outline:2px solid rgba(255,255,255,0.18); outline-offset:3px; }
+    .bottom-bar .icon-btn i{ font-size:20px; line-height:1; }
+    .bottom-bar .icon-btn span{ font-size:12px; line-height:1; color:#fff; }
+
+    /* highlighted center action (RSVP/Ucapan) */
+    .bottom-bar .icon-btn.rsvp{
+      background:linear-gradient(180deg,var(--accent), #7b5c39);
+      box-shadow:0 6px 18px rgba(0,0,0,0.25);
+    }
+
+    /* contact card (big) that appears above content */
+    .contact-card{display:none;position:fixed;left:50%;transform:translateX(-50%);bottom:90px;z-index:1300;width:320px;background:#e8dcc6;border-radius:12px;padding:12px;box-shadow:0 14px 40px rgba(0,0,0,0.18)}
+    .contact-card h3{text-align:center;margin-bottom:8px;font-family:'Playfair Display',serif;font-size:18px;color:#1f1f1f}
+    .contact-list{margin-top:8px}
+    .contact-row{display:flex;align-items:center;justify-content:space-between;padding:8px 6px;border-radius:8px}
+    .contact-info{display:flex;flex-direction:column}
+    .contact-info .name{font-size:16px;font-weight:600;color:#111}
+    .contact-info .role{font-size:13px;font-style:italic;color:#6b5f50}
+    .contact-actions{display:flex;gap:8px;align-items:center}
+    .contact-actions a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;background:var(--accent);border:none;text-decoration:none;color:#fff}
+
+    @media (max-width:420px){
+      .contact-card{width:calc(100% - 28px);padding:10px}
+      .bottom-bar{ padding:10px; gap:8px; }
+      .bottom-bar .icon-btn i{ font-size:22px; }
+      .bottom-bar .icon-btn span{ font-size:12px; }
+      .app { padding-bottom:110px; }
+    }
+
+    /* ucapan bubbles */
     .bubbles{display:flex;flex-direction:column;gap:8px;margin:12px 0}
     .bubble{align-self:flex-start;background:#fff4e9;border:1px solid #f0e1cf;padding:10px 14px;border-radius:18px;max-width:90%;box-shadow:0 6px 12px rgba(0,0,0,0.06);}    
     .bubble .meta{font-size:12px;color:var(--muted);margin-bottom:6px;font-weight:600}
     .bubble .msg{font-size:14px;color:#222;line-height:1.4}
+
     .map-popup iframe{width:100%;height:60vh;max-height:760px;border:none;border-radius:10px;margin-top:8px}
-    .map-popup{display:none}
-    .status{font-size:13px;color:#333;margin-top:8px;display:none}
-    .popup-box{background:#fff;border-radius:12px;padding:12px;box-shadow:0 10px 30px rgba(0,0,0,0.12)}
   </style>
 </head>
 <body>
@@ -90,8 +171,8 @@
         </div>
 
         <h2>Ucapan</h2>
+
         <div class="bubbles" id="bubblesContainer" aria-live="polite"></div>
-        <div id="globalStatus" class="status" role="status"></div>
 
         <h2>COUNTING DAYS</h2>
         <div class="countdown" id="countdown">
@@ -106,133 +187,311 @@
     </section>
   </div>
 
-  <!-- contact card (shown when Call icon clicked) -->
+  <!-- Contact Card -->
   <div class="contact-card" id="contactCard" role="dialog" aria-label="contact" style="display:none;">
-    <div class="popup-box">
-      <h3>CONTACT</h3>
-      <div class="contact-list">
-        <div class="contact-row">
-          <div class="contact-info"><div class="name">Hj. Shuhaimi</div><div class="role">Bapa</div></div>
-          <div class="contact-actions"><a href="https://wa.me/+60199150821" target="_blank" aria-label="whatsapp"><i class="fa-brands fa-whatsapp"></i></a><a href="tel:+60199150821" aria-label="call"><i class="fa-solid fa-phone"></i></a></div>
+    <h3>CONTACT</h3>
+    <div class="contact-list">
+      <div class="contact-row">
+        <div class="contact-info">
+          <div class="name">Hj. Shuhaimi</div>
+          <div class="role">Bapa</div>
         </div>
-        <div class="contact-row">
-          <div class="contact-info"><div class="name">Syafiq</div><div class="role">Abang</div></div>
-          <div class="contact-actions"><a href="https://wa.me/+60104070205" target="_blank" aria-label="whatsapp"><i class="fa-brands fa-whatsapp"></i></a><a href="tel:+60104070205" aria-label="call"><i class="fa-solid fa-phone"></i></a></div>
+        <div class="contact-actions">
+          <a href="https://wa.me/+60199150821" target="_blank" aria-label="whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="tel:+60199150821" aria-label="call"><i class="fa-solid fa-phone"></i></a>
         </div>
-        <div class="contact-row">
-          <div class="contact-info"><div class="name">Amalina</div><div class="role">Kakak</div></div>
-          <div class="contact-actions"><a href="https://wa.me/+601137426966" target="_blank" aria-label="whatsapp"><i class="fa-brands fa-whatsapp"></i></a><a href="tel:+601137426966" aria-label="call"><i class="fa-solid fa-phone"></i></a></div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-info">
+          <div class="name">Syafiq</div>
+          <div class="role">Abang</div>
+        </div>
+        <div class="contact-actions">
+          <a href="https://wa.me/+60104070205" target="_blank" aria-label="whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="tel:+60104070205" aria-label="call"><i class="fa-solid fa-phone"></i></a>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-info">
+          <div class="name">Amalina</div>
+          <div class="role">Kakak</div>
+        </div>
+        <div class="contact-actions">
+          <a href="https://wa.me/+601137426966" target="_blank" aria-label="whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="tel:+601137426966" aria-label="call"><i class="fa-solid fa-phone"></i></a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Map popup -->
+  <div class="map-popup" id="mapPopup" style="display:none;position:fixed;bottom:86px;left:50%;transform:translateX(-50%);background:#e8dcc6;color:#222;padding:12px;border-radius:12px;width:300px;text-align:center;box-shadow:0 14px 40px rgba(0,0,0,0.18);">
+    <h4 style="margin:0 0 6px;font-family:'Playfair Display',serif;color:#1f1f1f">Lokasi</h4>
+    <p style="margin:0 0 10px;font-size:14px;color:#6b5f50">White House Event Space, Dungun</p>
+    <a href="https://maps.app.goo.gl/Z2F3c86dVen1ciR29" target="_blank" style="display:flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;text-decoration:none;padding:8px;border-radius:8px;margin:6px auto;max-width:220px;gap:8px"><i class="fa-solid fa-map-location-dot"></i><span>Google Maps</span></a>
+    <a href="https://ul.waze.com/ul?venue_id=67764271.677839321.39155974" target="_blank" style="display:flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;text-decoration:none;padding:8px;border-radius:8px;margin:6px auto;max-width:220px;gap:8px"><i class="fa-brands fa-waze"></i><span>Waze</span></a>
+  </div>
+
+  <!-- Bottom bar -->
   <div class="bottom-bar" role="navigation" aria-label="tindakan">
-    <div class="icon-btn" id="callBtn" aria-label="panggil"><i class="fa-solid fa-phone"></i><span>Hubungi</span></div>
-    <div class="icon-btn" id="mapBtn" aria-label="lokasi"><i class="fa-solid fa-location-dot"></i><span>Lokasi</span></div>
-    <div class="icon-btn" id="openUcBtn" aria-label="ucapan"><i class="fa-regular fa-envelope"></i><span>Ucapan</span></div>
+    <button class="icon-btn" id="callBtn" aria-label="Hubungi" title="Hubungi">
+      <i class="fa-solid fa-phone"></i>
+      <span>Hubungi</span>
+    </button>
+
+    <button class="icon-btn" id="mapBtn" aria-label="Lokasi" title="Lokasi">
+      <i class="fa-solid fa-location-dot"></i>
+      <span>Lokasi</span>
+    </button>
+
+    <button class="icon-btn rsvp" id="bottomRsvpBtn" aria-label="RSVP" title="RSVP/Ucapan">
+      <i class="fa-regular fa-envelope"></i>
+      <span>RSVP</span>
+    </button>
   </div>
 
-  <!-- small popup for UCAPAN (inline) -->
-  <div id="ucapanForm" class="map-popup" aria-label="ucapan" style="display:none;position:fixed;bottom:70px;left:50%;transform:translateX(-50%);z-index:1000;">
-    <div class="popup-box">
-      <h4 style="margin:0 0 6px;font-family:'Playfair Display',serif;color:#1f1f1f">Hantar Ucapan</h4>
-      <p style="margin:0 0 10px;font-size:14px;color:#6b5f50">Tulis nama dan ucapan anda untuk Isma &amp; Fikri.</p>
-      <button id="closeUcapanBtn" aria-label="Tutup" style="position:absolute;top:12px;right:18px;background:transparent;border:none;font-size:18px;color:#333;cursor:pointer;z-index:1001">&times;</button>
-      <input id="ucap_name" type="text" placeholder="Nama anda" style="width:100%;padding:8px;border-radius:8px;border:1px solid #ddd;margin-bottom:8px">
-      <textarea id="ucap_text" placeholder="Ucapan untuk Isma & Fikri" rows="3" style="width:100%;padding:8px;border-radius:8px;border:1px solid #ddd;margin-bottom:8px"></textarea>
-      <div style="display:flex;gap:8px;justify-content:center;">
-        <button id="submitUcapan" class="btn" style="max-width:220px">Hantar</button>
-      </div>
-      <div id="ucapanStatus" class="status"></div>
+  <!-- Small inline RSVP popup -->
+  <div id="popupRsvp" style="display:none;position:fixed;bottom:110px;left:50%;transform:translateX(-50%);background:#e8dcc6;padding:12px;border-radius:12px;width:300px;text-align:center;box-shadow:0 14px 40px rgba(0,0,0,0.18);">
+    <h4 style="margin:0 0 6px;font-family:'Playfair Display',serif;color:#1f1f1f">RSVP</h4>
+    <p style="margin:0 0 10px;font-size:14px;color:#6b5f50">Pilih tindakan untuk RSVP atau hantarkan ucapan.</p>
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:center">
+      <a id="openInlineRsvp" href="#" style="width:220px;display:flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;text-decoration:none;padding:8px;border-radius:8px;gap:8px"><i class="fa-solid fa-clipboard-list"></i><span>Isi RSVP</span></a>
+      <a id="openUcapanBtn" href="#" style="width:220px;display:flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;text-decoration:none;padding:8px;border-radius:8px;gap:8px"><i class="fa-solid fa-pencil"></i><span>Hantar Ucapan</span></a>
     </div>
+  </div>
+
+  <!-- Inline RSVP iframe -->
+  <div id="popupRsvpIframe" class="map-popup" style="display:none;position:fixed;bottom:110px;left:50%;transform:translateX(-50%);background:#e8dcc6;padding:12px;border-radius:12px;width:95%;max-width:420px;text-align:center;box-shadow:0 14px 40px rgba(0,0,0,0.18);">
+    <h4 style="margin:0 0 6px;font-family:'Playfair Display',serif;color:#1f1f1f">Isi RSVP</h4>
+    <p style="margin:0 0 10px;font-size:14px;color:#6b5f50">Sila lengkapkan borang di bawah.</p>
+    <button id="closeRsvpIframeBtn" aria-label="Tutup" style="position:absolute;top:10px;right:18px;background:transparent;border:none;font-size:20px;color:#333;cursor:pointer;z-index:1600">&times;</button>
+    <form id="rsvpInlineForm" style="display:flex;flex-direction:column;gap:8px;margin-top:6px;">
+      <input id="rsvp_nama" name="nama" type="text" placeholder="Nama penuh" required style="padding:10px;border-radius:8px;border:1px solid #ddd;font-size:14px" />
+      <input id="rsvp_jumlah" name="jumlah" type="number" min="1" placeholder="Bilangan ahli (cth: 2)" value="1" required style="padding:10px;border-radius:8px;border:1px solid #ddd;font-size:14px" />
+      <div style="display:flex;gap:8px;justify-content:center;margin-top:4px">
+        <label style="display:flex;align-items:center;gap:6px"><input type="radio" name="hadir" value="Hadir" checked /> Hadir</label>
+        <label style="display:flex;align-items:center;gap:6px"><input type="radio" name="hadir" value="Tidak Hadir" /> Tidak Hadir</label>
+      </div>
+      <button id="rsvpSubmit" type="submit" class="btn" style="margin-top:6px">Hantar RSVP</button>
+    </form>
+    <div id="rsvpStatus" style="margin-top:8px;font-size:13px;color:#333;display:none"></div>
+  </div>
+
+  <!-- Ucapan inline popup -->
+  <div id="ucapanForm" style="display:none;position:fixed;bottom:110px;left:50%;transform:translateX(-50%);background:#e8dcc6;padding:12px;border-radius:12px;width:95%;max-width:420px;text-align:center;box-shadow:0 14px 40px rgba(0,0,0,0.18);">
+    <h4 style="margin:0 0 6px;font-family:'Playfair Display',serif;color:#1f1f1f">Hantar Ucapan</h4>
+    <p style="margin:0 0 10px;font-size:14px;color:#6b5f50">Tulis nama dan ucapan anda untuk Isma &amp; Fikri.</p>
+    <button id="closeUcapanBtn" aria-label="Tutup" style="position:absolute;top:10px;right:18px;background:transparent;border:none;font-size:20px;color:#333;cursor:pointer;z-index:1600">&times;</button>
+    <input id="ucap_name" type="text" placeholder="Nama anda" style="width:100%;padding:8px;border-radius:8px;border:1px solid #ddd;margin-bottom:8px">
+    <textarea id="ucap_text" placeholder="Ucapan untuk Isma & Fikri" rows="3" style="width:100%;padding:8px;border-radius:8px;border:1px solid #ddd;margin-bottom:8px"></textarea>
+    <div style="display:flex;gap:8px;justify-content:center;">
+      <button id="submitUcapan" class="btn" style="max-width:220px">Hantar</button>
+    </div>
+    <div id="ucapanStatus" style="margin-top:8px;font-size:13px;color:#333;display:none"></div>
   </div>
 
 <script>
 (function(){
-  // ======= CONFIG: GANTI dgn URL Web App (deploy Code.gs) =======
-  // Example: 'https://script.google.com/macros/s/AKfycbx.../exec'
+  /* ---------- CONFIG: ganti URL jika perlu ---------- */
+  const RSVP_WS_URL = 'https://script.google.com/macros/s/AKfycbzIHYp70QawSLYH8K1M1YMgIOE52UjUbB9UrgtUQWsiLhEGpbm60ma70sd3mAL3BdherQ/exec';
   const UCAPAN_WS_URL = 'https://script.google.com/macros/s/AKfycbzDYI9RXDgtm0E6Li32k8tpsgzYn9WKA3JATB5UUdNbd2cxXLLUM6ARSliRikx-Cx4d/exec';
-  // ============================================================
 
   /* ---------- UTIL ---------- */
-  function escapeHtml(s){ if(typeof s!=='string') return s||''; return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;'); }
-  async function safeJson(resp){ try { return await resp.json(); } catch(e){ return null; } }
-  function showLocalStatus(msg, ok){
-    const el = document.getElementById('globalStatus');
+  function escapeHtml(s){
+    if (typeof s !== 'string') return s || '';
+    return s.replace(/&/g,'&amp;')
+            .replace(/</g,'&lt;')
+            .replace(/>/g,'&gt;')
+            .replace(/"/g,'&quot;')
+            .replace(/'/g,'&#039;');
+  }
+
+  function showStatus(el, msg, ok){
     if(!el) return;
     el.style.display = 'block';
     el.textContent = msg;
     el.style.color = ok ? '#0a7a00' : '#b21b1b';
   }
-  function clearLocalStatus(){ const el = document.getElementById('globalStatus'); if(el) el.style.display='none'; el.textContent=''; }
 
-  /* ---------- UI refs ---------- */
-  const bubblesContainer = document.getElementById('bubblesContainer');
+  function hideAllPopups(){
+    const ids = ['contactCard','mapPopup','popupRsvp','popupRsvpIframe','ucapanForm','imageModal'];
+    ids.forEach(id => { const e = document.getElementById(id); if(e) e.style.display = 'none'; });
+  }
+
+  async function safeJson(resp){
+    try { return await resp.json(); } catch(e){ return null; }
+  }
+
+  /* ---------- IMAGE MODAL ---------- */
+  const images = document.querySelectorAll('.grid img');
+  const imageModal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImg');
+  const imageModalClose = document.getElementById('imageModalClose');
+
+  if(images && images.forEach){
+    images.forEach(function(img){
+      img.addEventListener('click', function(){
+        if(imageModal && modalImg){ modalImg.src = img.src; imageModal.style.display='block'; }
+      });
+    });
+  }
+  if(imageModalClose) imageModalClose.addEventListener('click', function(){ if(imageModal) imageModal.style.display='none'; });
+  window.addEventListener('click', function(ev){ if(ev.target === imageModal) imageModal.style.display='none'; });
+
+  /* ---------- BOTTOM BAR actions (refined) ---------- */
+  const callBtn = document.getElementById('callBtn');
+  const mapBtn = document.getElementById('mapBtn');
+  const bottomRsvpBtn = document.getElementById('bottomRsvpBtn');
+  const contactCard = document.getElementById('contactCard');
+  const mapPopup = document.getElementById('mapPopup');
+  const popupRsvp = document.getElementById('popupRsvp');
+  const popupRsvpIframe = document.getElementById('popupRsvpIframe');
   const ucapanForm = document.getElementById('ucapanForm');
-  const openUcBtn = document.getElementById('openUcBtn');
-  const closeUcBtn = document.getElementById('closeUcapanBtn');
-  const submitUcBtn = document.getElementById('submitUcapan');
 
-  /* ---------- add bubble to DOM with dedupe ---------- */
-  const seen = new Set();
-  function makeKey(name, text, ts){ return (name||'') + '|' + (text||'') + '|' + (ts||''); }
-  function addBubble(name, text, ts, prepend=true){
-    try {
-      const key = makeKey(name, text, ts);
-      if(seen.has(key)) return;
-      seen.add(key);
-      const b = document.createElement('div'); b.className='bubble';
-      const timeLabel = ts ? (new Date(ts)).toLocaleString() : (new Date()).toLocaleString();
-      b.innerHTML = '<div class="meta">'+escapeHtml(name)+' • <span style="font-size:11px;color:#999">'+ timeLabel +'</span></div><div class="msg">'+escapeHtml(text)+'</div>';
-      if(prepend && bubblesContainer.firstChild) bubblesContainer.insertBefore(b, bubblesContainer.firstChild);
-      else bubblesContainer.appendChild(b);
-    } catch(e){ console.warn('addBubble error', e); }
+  function hideAll() {
+    [contactCard, mapPopup, popupRsvp, popupRsvpIframe, ucapanForm].forEach(el => { if(el) el.style.display = 'none'; });
   }
 
-  /* ---------- robust parse for server responses ---------- */
-  function normaliseItems(resp){
-    if(!resp) return null;
-    if(Array.isArray(resp)) return resp;
-    if(resp.items && Array.isArray(resp.items)) return resp.items;
-    if(resp.data && Array.isArray(resp.data)) return resp.data;
-    // pick first array property
-    for(const k of Object.keys(resp)){
-      if(Array.isArray(resp[k])) return resp[k];
-    }
-    // numeric keys -> map to array
-    const numeric = Object.keys(resp).filter(k=>/^\d+$/.test(k)).sort((a,b)=>a-b);
-    if(numeric.length) return numeric.map(k=>resp[k]);
-    return null;
+  if(callBtn){
+    callBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      hideAll();
+      contactCard.style.display = (contactCard.style.display === 'block') ? 'none' : 'block';
+    });
+    callBtn.addEventListener('keydown', function(e){ if(e.key === 'Enter') callBtn.click(); });
   }
 
-  /* ---------- JSONP helper ---------- */
-  function jsonp(url, timeout=10000){
-    return new Promise((resolve,reject)=>{
-      const cb = '__ucp_cb_' + (Math.random()*1e9|0);
-      window[cb] = function(data){ cleanup(); resolve(data); };
-      const s = document.createElement('script');
-      const sep = url.includes('?') ? '&' : '?';
-      s.src = url + sep + 'callback=' + cb + '&_t=' + Date.now();
-      s.async = true;
-      s.onerror = function(){ cleanup(); reject(new Error('JSONP load error')); };
-      const t = setTimeout(()=>{ cleanup(); reject(new Error('JSONP timeout')); }, timeout);
-      function cleanup(){ clearTimeout(t); try{ document.head.removeChild(s); }catch(e){} try{ delete window[cb]; }catch(e){} }
-      document.head.appendChild(s);
+  if(mapBtn){
+    mapBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      hideAll();
+      mapPopup.style.display = (mapPopup.style.display === 'block') ? 'none' : 'block';
+    });
+    mapBtn.addEventListener('keydown', function(e){ if(e.key==='Enter') mapBtn.click(); });
+  }
+
+  if(bottomRsvpBtn){
+    bottomRsvpBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      hideAll();
+      popupRsvp.style.display = (popupRsvp.style.display === 'block') ? 'none' : 'block';
+    });
+    bottomRsvpBtn.addEventListener('keydown', function(e){ if(e.key==='Enter') bottomRsvpBtn.click(); });
+  }
+
+  /* close popups when clicking outside */
+  document.addEventListener('click', function(e){
+    const popupEls = [contactCard, mapPopup, popupRsvp, popupRsvpIframe, ucapanForm, imageModal];
+    let inside=false;
+    popupEls.forEach(p=>{ if(p && p.contains(e.target)) inside=true; });
+    const btns = [callBtn, mapBtn, bottomRsvpBtn];
+    btns.forEach(b => { if(b && (b === e.target || b.contains(e.target))) inside=true; });
+    if(!inside) hideAll();
+  });
+
+  /* ---------- RSVP popup controls ---------- */
+  const openInlineRsvp = document.getElementById('openInlineRsvp');
+  const openUcapanBtn = document.getElementById('openUcapanBtn');
+  const closeRsvpIframeBtn = document.getElementById('closeRsvpIframeBtn');
+  const rsvpForm = document.getElementById('rsvpInlineForm');
+  const rsvpStatus = document.getElementById('rsvpStatus');
+
+  if(openInlineRsvp){
+    openInlineRsvp.addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      popupRsvp.style.display='none';
+      popupRsvpIframe.style.display = 'block';
+      const el = document.getElementById('rsvp_nama'); if(el) el.focus();
     });
   }
 
-  /* ---------- parse server-safe: try JSON then text-extract ---------- */
-  async function parseMaybeJson(resp){
+  if(closeRsvpIframeBtn){
+    closeRsvpIframeBtn.addEventListener('click', function(e){ e.stopPropagation(); popupRsvpIframe.style.display = 'none'; });
+  }
+
+  if(rsvpForm){
+    rsvpForm.addEventListener('submit', async function(e){
+      e.preventDefault();
+      if(rsvpStatus) rsvpStatus.style.display='none';
+      const nama = document.getElementById('rsvp_nama').value.trim();
+      const jumlah = document.getElementById('rsvp_jumlah').value;
+      const hadir = (rsvpForm.querySelector('input[name="hadir"]:checked')||{}).value || '';
+
+      if(!nama || !jumlah){ showStatus(rsvpStatus, 'Sila lengkapkan nama dan jumlah ahli.', false); return; }
+
+      const payload = { type: 'rsvp', nama: nama, jumlah: jumlah, hadir: hadir, timestamp: new Date().toISOString() };
+
+      // try urlencoded (Apps Script friendly)
+      try {
+        const body = new URLSearchParams();
+        body.append('nama', nama);
+        body.append('jumlah', jumlah);
+        body.append('hadir', hadir);
+        body.append('type', 'rsvp');
+
+        const res2 = await fetch(RSVP_WS_URL, {
+          method:'POST',
+          headers:{ 'Content-Type':'application/x-www-form-urlencoded' },
+          body: body.toString()
+        });
+        const j2 = await safeJson(res2);
+        if(res2.ok && j2 && (j2.status === 'success' || j2.result === 'success')) {
+          showStatus(rsvpStatus, (j2.message || 'RSVP dihantar. Terima kasih!'), true);
+          rsvpForm.reset();
+          setTimeout(()=> { popupRsvpIframe.style.display='none'; }, 900);
+          return;
+        } else {
+          showStatus(rsvpStatus, 'Gagal hantar RSVP (server responded). Sila cuba lagi.', false);
+          console.error('RSVP fallback response', j2);
+        }
+      } catch(err2){
+        console.error('RSVP fallback error', err2);
+        showStatus(rsvpStatus, 'Ralat rangkaian. Sila cuba semula.', false);
+      }
+    });
+  }
+
+  /* ---------- Ucapan (messages) - robust load + optimistic UI ---------- */
+  const openUcapanButton = document.getElementById('openUcapanBtn');
+  const closeUcapanBtn = document.getElementById('closeUcapanBtn');
+  const submitUcapan = document.getElementById('submitUcapan');
+  const ucapanStatus = document.getElementById('ucapanStatus');
+  const bubblesContainer = document.getElementById('bubblesContainer');
+
+  // fallback helpers if not present
+  if (typeof escapeHtml === 'undefined') {
+    function escapeHtml(s){ if (typeof s !== 'string') return s||''; return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;'); }
+  }
+  if (typeof safeJson === 'undefined') {
+    async function safeJson(resp){ try{ return await resp.json(); }catch(e){ return null; } }
+  }
+  if (typeof showStatus === 'undefined') {
+    function showStatus(el,msg,ok){ if(!el) return; el.style.display='block'; el.textContent=msg; el.style.color = ok ? '#0a7a00' : '#b21b1b'; }
+  }
+
+  function addBubbleToUI(name, text, timestamp, prepend=true){
+    try {
+      const container = bubblesContainer;
+      const bubble = document.createElement('div'); bubble.className = 'bubble';
+      const timeLabel = timestamp ? (new Date(timestamp)).toLocaleString() : (new Date()).toLocaleString();
+      bubble.innerHTML = '<div class="meta">'+escapeHtml(name)+' • <span style="font-size:11px;color:#999">'+ timeLabel +'</span></div><div class="msg">'+escapeHtml(text)+'</div>';
+      if(prepend && container) container.insertBefore(bubble, container.firstChild);
+      else if(container) container.appendChild(bubble);
+    } catch(e){ console.warn('addBubbleToUI error', e); }
+  }
+
+  // Robust parser: try JSON, try text->JSON, tolerant to different shapes
+  async function parseServerJsonResponse(resp){
     try {
       const j = await safeJson(resp);
       if(j) return j;
-    } catch(e){}
+    } catch(e){ /* ignore */ }
+
     try {
       const txt = await resp.text();
-      // try parse directly
       try { return JSON.parse(txt); } catch(e){}
-      // try find JSON substring
       const m = txt.match(/(\{[\s\S]*\}|\[[\s\S]*\])/);
       if(m && m[1]) {
         try { return JSON.parse(m[1]); } catch(e){}
@@ -241,211 +500,171 @@
     return null;
   }
 
-  /* ---------- load function: fetch -> proxy -> jsonp ---------- */
+  // load list from server, tolerant to multiple response shapes
   async function loadUcapanFromServer(){
-    clearLocalStatus();
-    const apiUrl = UCAPAN_WS_URL + (UCAPAN_WS_URL.includes('?') ? '&' : '?') + 'api=ucapan';
-    console.log('loadUcapanFromServer: try', apiUrl);
-
-    // direct fetch
     try {
-      const r = await fetch(apiUrl, { method:'GET', cache:'no-cache' });
-      if(r){
-        const parsed = await parseMaybeJson(r);
-        console.log('loadUcapanFromServer: parsed (direct)', parsed);
-        const items = normaliseItems(parsed);
-        if(items){
-          // clear previous
-          bubblesContainer.innerHTML = '';
-          seen.clear();
-          items.forEach(row=>{
-            if(Array.isArray(row)){
-              addBubble(row[1]||'', row[2]||'', row[0]||null, false);
-            } else if(typeof row === 'object' && row !== null){
-              addBubble(row.nama||row.Nama||'', row.ucapan||row.message||'', row.timestamp||row.Timestamp||null, false);
-            } else {
-              addBubble('', String(row), new Date().toISOString(), false);
-            }
+      console.log('loadUcapanFromServer: GET', UCAPAN_WS_URL);
+      const resp = await fetch(UCAPAN_WS_URL, { method:'GET', cache:'no-cache' });
+      if(!resp) { console.warn('no response from GET'); return false; }
+      const j = await parseServerJsonResponse(resp);
+      console.log('loadUcapanFromServer parsed:', j);
+
+      if(!j) {
+        console.warn('loadUcapanFromServer: could not parse JSON');
+        return false;
+      }
+
+      let items = null;
+      if(Array.isArray(j)) items = j;
+      else if(j.items && Array.isArray(j.items)) items = j.items;
+      else if(j.data && Array.isArray(j.data)) items = j.data;
+      else {
+        const maybe = Object.values(j).filter(v => Array.isArray(v))[0];
+        if(maybe) items = maybe;
+      }
+
+      if(!items) {
+        console.warn('loadUcapanFromServer: no items array found in JSON');
+        return false;
+      }
+
+      bubblesContainer.innerHTML = '';
+      items.forEach(it => {
+        if(Array.isArray(it)){
+          addBubbleToUI(it[1] || '', it[2] || '', it[0] || null, false);
+        } else if(typeof it === 'object' && it !== null){
+          const nama = it.nama || it.Nama || it.NAMA || it[1] || '';
+          const ucapan = it.ucapan || it.Ucapan || it.UCAPAN || it[2] || it.message || '';
+          const ts = it.timestamp || it.time || it.Timestamp || it[0] || null;
+          addBubbleToUI(nama, ucapan, ts, false);
+        }
+      });
+      return true;
+    } catch(err){
+      console.warn('loadUcapanFromServer error', err);
+      return false;
+    }
+  }
+
+  // init: try load existing ucapan
+  (async function(){ await loadUcapanFromServer(); })();
+
+  // popup open/close handlers
+  if(openUcapanButton){
+    openUcapanButton.addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      popupRsvp.style.display='none';
+      ucapanForm.style.display = (ucapanForm.style.display === 'block') ? 'none' : 'block';
+      const el = document.getElementById('ucap_name'); if(el) el.focus();
+    });
+  }
+  if(closeUcapanBtn){
+    closeUcapanBtn.addEventListener('click', function(e){ e.stopPropagation(); ucapanForm.style.display='none'; });
+  }
+
+  // submit: optimistic bubble + POST + refresh (robust)
+  if(submitUcapan){
+    submitUcapan.addEventListener('click', async function(e){
+      e.preventDefault(); e.stopPropagation();
+      if(ucapanStatus) ucapanStatus.style.display='none';
+      const nameEl = document.getElementById('ucap_name');
+      const textEl = document.getElementById('ucap_text');
+      const name = nameEl ? nameEl.value.trim() : '';
+      const text = textEl ? textEl.value.trim() : '';
+
+      if(!name || !text){ showStatus(ucapanStatus, 'Sila isi nama dan ucapan.', false); return; }
+
+      // disable button to prevent double send
+      submitUcapan.style.pointerEvents = 'none';
+      submitUcapan.style.opacity = '0.6';
+
+      // optimistic bubble
+      const tsNow = new Date().toISOString();
+      addBubbleToUI(name, text, tsNow, true);
+
+      const payload = { nama: name, ucapan: text, timestamp: tsNow, type: 'ucapan' };
+      let sent = false;
+
+      // try form-urlencoded POST
+      try {
+        const body = new URLSearchParams();
+        body.append('nama', payload.nama);
+        body.append('ucapan', payload.ucapan);
+        body.append('timestamp', payload.timestamp);
+        body.append('type', 'ucapan');
+        console.log('POST form to', UCAPAN_WS_URL, body.toString());
+
+        const resp = await fetch(UCAPAN_WS_URL, {
+          method: 'POST',
+          headers: { 'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8' },
+          body: body.toString()
+        });
+        const parsed = await parseServerJsonResponse(resp.clone ? resp.clone() : resp);
+        console.log('POST form response parsed:', parsed);
+        if(resp.ok && parsed && (parsed.status==='success' || parsed.result==='success')) {
+          sent = true;
+        }
+      } catch(err){ console.warn('POST form error', err); }
+
+      // fallback JSON POST
+      if(!sent){
+        try {
+          console.log('POST JSON fallback to', UCAPAN_WS_URL, payload);
+          const resp2 = await fetch(UCAPAN_WS_URL, {
+            method: 'POST',
+            headers: { 'Content-Type':'application/json;charset=UTF-8' },
+            body: JSON.stringify(payload)
           });
-          return true;
-        } else {
-          console.warn('loadUcapanFromServer: direct fetch - no items');
-        }
+          const parsed2 = await parseServerJsonResponse(resp2.clone ? resp2.clone() : resp2);
+          console.log('POST json response parsed:', parsed2);
+          if(resp2.ok && parsed2 && (parsed2.status==='success' || parsed2.result==='success')) sent = true;
+        } catch(err2){ console.warn('POST json error', err2); }
       }
-    } catch(err){ console.warn('loadUcapanFromServer direct fetch error', err); }
 
-    // proxy
-    try {
-      const proxy = 'https://api.allorigins.win/raw?url=';
-      const prox = proxy + encodeURIComponent(apiUrl);
-      console.log('loadUcapanFromServer: trying proxy', prox);
-      const r2 = await fetch(prox, { method:'GET', cache:'no-cache' });
-      if(r2){
-        const txt = await r2.text();
-        try {
-          const parsed2 = JSON.parse(txt);
-          const items2 = normaliseItems(parsed2);
-          if(items2){
-            bubblesContainer.innerHTML = '';
-            seen.clear();
-            items2.forEach(row=>{
-              if(Array.isArray(row)) addBubble(row[1]||'', row[2]||'', row[0]||null, false);
-              else if(typeof row === 'object') addBubble(row.nama||'', row.ucapan||'', row.timestamp||null, false);
-              else addBubble('', String(row), new Date().toISOString(), false);
-            });
-            return true;
-          }
-        } catch(e){
-          // try extract JSON substring
-          const m = txt.match(/(\{[\s\S]*\}|\[[\s\S]*\])/);
-          if(m && m[1]){
-            try {
-              const parsed3 = JSON.parse(m[1]);
-              const items3 = normaliseItems(parsed3);
-              if(items3){
-                bubblesContainer.innerHTML = '';
-                seen.clear();
-                items3.forEach(row=>{
-                  if(Array.isArray(row)) addBubble(row[1]||'', row[2]||'', row[0]||null, false);
-                  else if(typeof row === 'object') addBubble(row.nama||'', row.ucapan||'', row.timestamp||null, false);
-                  else addBubble('', String(row), new Date().toISOString(), false);
-                });
-                return true;
-              }
-            } catch(ee){}
-          }
-        }
+      // Try refresh list; if fails we keep optimistic bubble visible
+      const refreshed = await loadUcapanFromServer();
+      if(!refreshed){
+        console.warn('Could not refresh list after POST. Optimistic bubble remains.');
       }
-    } catch(proxyErr){ console.warn('loadUcapanFromServer proxy error', proxyErr); }
 
-    // JSONP fallback
-    try {
-      const j4 = await jsonp(apiUrl, 10000);
-      console.log('loadUcapanFromServer: jsonp result', j4);
-      const items4 = normaliseItems(j4);
-      if(items4){
-        bubblesContainer.innerHTML = '';
-        seen.clear();
-        items4.forEach(row=>{
-          if(Array.isArray(row)) addBubble(row[1]||'', row[2]||'', row[0]||null, false);
-          else if(typeof row === 'object') addBubble(row.nama||'', row.ucapan||'', row.timestamp||null, false);
-          else addBubble('', String(row), new Date().toISOString(), false);
-        });
-        return true;
+      // reset UI
+      if(nameEl) nameEl.value='';
+      if(textEl) textEl.value='';
+      submitUcapan.style.pointerEvents = 'auto';
+      submitUcapan.style.opacity = '1';
+      setTimeout(()=>{ ucapanForm.style.display='none'; }, 700);
+
+      if(sent){
+        showStatus(ucapanStatus, 'Ucapan dihantar dan disimpan.', true);
+      } else {
+        showStatus(ucapanStatus, 'Ucapan dipaparkan di skrin tetapi tidak dapat disahkan oleh server.', false);
       }
-    } catch(jsonpErr){ console.warn('loadUcapanFromServer jsonp error', jsonpErr); }
-
-    showLocalStatus('Gagal muatkan ucapan — semak deployment Web App atau sambungan.', false);
-    return false;
+    });
   }
 
-  /* ---------- optimistic POST + poll until confirmed ---------- */
-  async function postUcapan(name, text){
-    const ts = new Date().toISOString();
-    addBubble(name, text, ts, true); // optimistic
-
-    const payload = { nama: name, ucapan: text, timestamp: ts, type: 'ucapan' };
-    let sent = false;
-
-    // try form POST
-    try {
-      const body = new URLSearchParams();
-      body.append('nama', payload.nama);
-      body.append('ucapan', payload.ucapan);
-      body.append('timestamp', payload.timestamp);
-      body.append('type', 'ucapan');
-
-      const r = await fetch(UCAPAN_WS_URL, { method:'POST', headers:{ 'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8' }, body: body.toString() });
-      try {
-        const p = await parseMaybeJson(r);
-        console.log('POST form parsed', p);
-        if(r.ok && p && (p.status==='success' || p.result==='success')) sent = true;
-      } catch(e){}
-    } catch(e){ console.warn('postUcapan form error', e); }
-
-    // fallback JSON POST
-    if(!sent){
-      try {
-        const r2 = await fetch(UCAPAN_WS_URL, { method:'POST', headers:{ 'Content-Type':'application/json;charset=UTF-8' }, body: JSON.stringify(payload) });
-        try {
-          const p2 = await parseMaybeJson(r2);
-          console.log('POST json parsed', p2);
-          if(r2.ok && p2 && (p2.status==='success' || p2.result==='success')) sent = true;
-        } catch(e){}
-      } catch(e2){ console.warn('postUcapan json error', e2); }
-    }
-
-    // poll until appears
-    const maxAttempts = 8;
-    const delays = [400,800,1200,1800,2500,3000,4000,6000];
-    for(let i=0;i<maxAttempts;i++){
-      await new Promise(r => setTimeout(r, delays[i] || 2000));
-      const ok = await loadUcapanFromServer();
-      if(ok){
-        // check DOM for name+text presence (loose match)
-        const found = Array.from(document.querySelectorAll('.bubble')).some(b=>{
-          const t = b.textContent || '';
-          if(t.indexOf(name) !== -1 && t.indexOf(text) !== -1) return true;
-          return false;
-        });
-        if(found){
-          showLocalStatus('Ucapan disimpan dan kini kelihatan.', true);
-          return { sent: sent, confirmed: true };
-        }
-      }
-    }
-
-    showLocalStatus(sent ? 'Ucapan dihantar tetapi belum muncul pada server. Sila refresh kemudian.' : 'Gagal hantar ucapan ke server.', sent);
-    return { sent: sent, confirmed: false };
-  }
-
-  /* ---------- UI bindings ---------- */
-  openUcBtn.addEventListener('click', function(e){ e.stopPropagation(); ucapanForm.style.display = 'block'; const el = document.getElementById('ucap_name'); if(el) el.focus(); });
-  closeUcBtn.addEventListener('click', function(e){ e.stopPropagation(); ucapanForm.style.display = 'none'; });
-  document.addEventListener('click', function(e){ if(ucapanForm && ucapanForm.contains && !ucapanForm.contains(e.target) && e.target !== openUcBtn) { ucapanForm.style.display='none'; } });
-
-  submitUcBtn.addEventListener('click', async function(e){
-    e.preventDefault(); e.stopPropagation();
-    const nameEl = document.getElementById('ucap_name');
-    const textEl = document.getElementById('ucap_text');
-    const name = nameEl ? nameEl.value.trim() : '';
-    const text = textEl ? textEl.value.trim() : '';
-    const statusEl = document.getElementById('ucapanStatus');
-
-    if(!name || !text){ if(statusEl) { showStatus(statusEl, 'Sila isi nama dan ucapan.', false); } return; }
-    if(statusEl) statusEl.style.display='none';
-    submitUcBtn.disabled = true;
-
-    await postUcapan(name, text);
-
-    // clear & close
-    if(nameEl) nameEl.value='';
-    if(textEl) textEl.value='';
-    submitUcBtn.disabled = false;
-    setTimeout(()=>{ ucapanForm.style.display='none'; }, 700);
-  });
-
-  /* ---------- initial load & countdown ---------- */
-  (async function init(){
-    await loadUcapanFromServer();
-  })();
-
-  // countdown
+  /* ---------- countdown ---------- */
   function pad(n){ return String(n).padStart(2,'0'); }
   const eventDate = new Date('2026-01-03T11:00:00+08:00');
   function updateCountdown(){
     const now = new Date();
     let diff = Math.max(0, Math.floor((eventDate - now) / 1000));
-    const days = Math.floor(diff/86400); diff %= 86400;
-    const hours = Math.floor(diff/3600); diff %= 3600;
-    const mins = Math.floor(diff/60); const secs = diff % 60;
-    document.getElementById('days').textContent = days;
-    document.getElementById('hours').textContent = pad(hours);
-    document.getElementById('mins').textContent = pad(mins);
-    document.getElementById('secs').textContent = pad(secs);
+    const days = Math.floor(diff / 86400); diff %= 86400;
+    const hours = Math.floor(diff / 3600); diff %= 3600;
+    const mins = Math.floor(diff / 60); const secs = diff % 60;
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minsEl = document.getElementById('mins');
+    const secsEl = document.getElementById('secs');
+    if(daysEl) daysEl.textContent = days;
+    if(hoursEl) hoursEl.textContent = pad(hours);
+    if(minsEl) minsEl.textContent = pad(mins);
+    if(secsEl) secsEl.textContent = pad(secs);
   }
   updateCountdown();
   setInterval(updateCountdown, 1000);
+
+  /* expose openRsvpPopup for external use */
+  window.openRsvpPopup = function(){ popupRsvpIframe.style.display='block'; setTimeout(()=>{ const el=document.getElementById('rsvp_nama'); if(el) el.focus(); }, 80); };
 
 })();
 </script>
