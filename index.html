@@ -24,11 +24,11 @@
     .intro-text .tarikh{font-family:'Poppins',sans-serif;font-size:16px;color:#222;margin-top:10px;font-weight:500;text-shadow:none}
     .intro-text .lokasi{font-family:'Poppins',sans-serif;font-size:14px;color:#222;margin-top:3px;font-weight:500;text-shadow:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-    .content{background:rgba(255,255,255,0.92);backdrop-filter:blur(6px);border-radius:16px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,0.05);position:relative;z-index:3;margin:20px;max-width:420px}
+    .content{background:rgba(255,255,255,0.9);backdrop-filter:blur(6px);border-radius:16px;padding:24px;box-shadow:0 8px 20px rgba(0,0,0,0.05);position:relative;z-index:3;margin:20px;max-width:420px}
 
     .parent-name,.couple-name{font-family:'Playfair Display',serif;font-size:18px;color:#2b2b2b;margin-bottom:8px;text-align:center;font-weight:700}
 
-    h2{font-size:18px;font-weight:600;color:var(--accent);margin:14px 0 8px;text-align:center}
+    h2{font-size:18px;font-weight:600;color:var(--accent);margin:16px 0 8px;text-align:center}
     p{font-size:15px;color:#222;line-height:1.6;margin-bottom:8px;text-align:center}
 
     .btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:#fff;padding:12px 20px;border-radius:12px;font-weight:600;text-decoration:none;margin:6px auto;text-align:center;border:none;transition:0.2s;width:100%;max-width:300px}
@@ -38,17 +38,11 @@
 
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
     .grid img{width:100%;height:90px;object-fit:cover;border-radius:8px;cursor:pointer;transition:0.3s}
-    .grid img:hover{opacity:0.95;transform:scale(1.02)}
+    .grid img:hover{opacity:0.9;transform:scale(1.03)}
 
     .modal{display:none;position:fixed;z-index:999;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgba(0,0,0,0.8)}
-    .modal-content{margin:auto;display:block;max-width:95%;max-height:90%;border-radius:10px}
+    .modal-content{margin:auto;display:block;max-width:90%;max-height:90%;border-radius:10px}
     .close{position:absolute;top:15px;right:25px;color:white;font-size:30px;font-weight:bold;cursor:pointer}
-
-    form.rsvp{display:none;flex-direction:column;gap:8px;margin-top:10px}
-    form.rsvp.active{display:flex}
-    .rsvp input[type="text"],.rsvp input[type="number"],.rsvp select{padding:10px;border-radius:8px;border:1px solid #ddd;font-size:14px}
-    .rsvp .row{display:flex;gap:8px}
-    .rsvp .row .col{flex:1}
 
     .countdown{display:flex;justify-content:center;gap:8px;margin-top:12px}
     .countdown div{background:#f1f1f1;padding:8px 10px;border-radius:8px;min-width:54px}
@@ -57,9 +51,9 @@
 
     footer{font-size:12px;color:var(--muted);margin-top:20px;text-align:center}
 
-    .bottom-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:110;
-      width:calc(100% - 40px);max-width:420px;background:rgba(0,0,0,0.72);
-      border-radius:14px;padding:10px 12px;box-shadow:0 8px 26px rgba(0,0,0,0.12);
+    .bottom-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:10px;z-index:50;
+      width:calc(100% - 40px);max-width:420px;background:rgba(0,0,0,0.75);
+      border-radius:14px;padding:10px 12px;box-shadow:0 6px 20px rgba(0,0,0,0.12);
       display:flex;gap:12px;align-items:center;justify-content:space-around;overflow:visible
     }
 
@@ -67,34 +61,33 @@
     .bottom-bar .icon-btn i{color:#fff;font-size:20px}
     .bottom-bar .icon-btn span{font-size:11px;color:#fff;line-height:1}
 
-    /* contact card (big) that appears above content */
-    .contact-card{display:none;position:fixed;left:50%;transform:translateX(-50%);bottom:110px;z-index:105;width:calc(100% - 40px);max-width:420px;background:#e8dcc6;border-radius:18px;padding:18px;box-shadow:0 10px 30px rgba(0,0,0,0.12)}
+    .contact-card{display:none;position:fixed;left:50%;transform:translateX(-50%);bottom:110px;z-index:80;width:calc(100% - 40px);max-width:420px;background:#e8dcc6;border-radius:18px;padding:22px;box-shadow:0 10px 30px rgba(0,0,0,0.12)}
     .contact-card h3{text-align:center;margin-bottom:8px;font-family:'Playfair Display',serif;font-size:20px;color:#1f1f1f}
     .contact-list{margin-top:8px}
-    .contact-row{display:flex;align-items:center;justify-content:space-between;padding:10px 6px;border-radius:10px}
+    .contact-row{display:flex;align-items:center;justify-content:space-between;padding:12px 6px;border-radius:10px}
     .contact-info{display:flex;flex-direction:column}
     .contact-info .name{font-size:16px;font-weight:600;color:#111}
     .contact-info .role{font-size:13px;font-style:italic;color:#6b5f50}
     .contact-actions{display:flex;gap:12px;align-items:center}
     .contact-actions a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:8px;background:var(--accent);border:none;text-decoration:none;color:#fff}
 
-    @media (max-width:420px){.contact-card{width:calc(100% - 28px);padding:14px}}
+    @media (max-width:420px){.contact-card{width:calc(100% - 28px);padding:16px}}
 
-    /* ucapan bubbles */
-    .bubbles{display:flex;flex-direction:column;gap:8px;margin:12px 0;max-height:34vh;overflow:auto;padding-right:6px}
-    .bubble{align-self:flex-start;background:#fff4e9;border:1px solid #f0e1cf;padding:10px 14px;border-radius:18px;max-width:92%;box-shadow:0 6px 12px rgba(0,0,0,0.06);}    
+    .bubbles{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+    .bubble{align-self:flex-start;background:#fff4e9;border:1px solid #f0e1cf;padding:10px 14px;border-radius:18px;max-width:90%;box-shadow:0 6px 12px rgba(0,0,0,0.06);}    
     .bubble .meta{font-size:12px;color:var(--muted);margin-bottom:6px;font-weight:600}
-    .bubble .msg{font-size:14px;color:#222;line-height:1.4;white-space:pre-wrap}
+    .bubble .msg{font-size:14px;color:#222;line-height:1.4}
 
+    .map-popup iframe{width:100%;height:60vh;max-height:760px;border:none;border-radius:10px;margin-top:8px}
+    @media (max-width:420px){.map-popup iframe{height:65vh;max-height:820px}}
+
+    .map-popup{display:none;position:fixed;z-index:1000}
   </style>
 </head>
 <body>
   <div class="app">
     <section>
-      <div class="bg-video">
-        <img src="https://jemputan.me/images/upload/design/1723691062_FLO102_Cover.png" alt="Wedding Background" />
-      </div>
-
+      <div class="bg-video"><img src="https://jemputan.me/images/upload/design/1723691062_FLO102_Cover.png" alt="Wedding Background" /></div>
       <div class="intro-text">
         <div class="kecil">WALIMATULURUS</div><br><br>
         <div class="besar"><span>ISMA</span><span>&amp;</span><span>FIKRI</span></div><br>
@@ -127,21 +120,21 @@
           <img src="https://i.postimg.cc/T1VPHTMh/8EC8700E-DA47-4FF0-9F84-2FCE47B1A986-1-105-c.jpg" alt="3">
         </div>
 
-        <div id="imageModal" class="modal" aria-hidden="true">
+        <div id="imageModal" class="modal">
           <span class="close" id="imageModalClose">&times;</span>
-          <img class="modal-content" id="modalImg" alt="Preview" />
+          <img class="modal-content" id="modalImg" />
         </div>
 
         <h2>Ucapan</h2>
 
-        <div class="bubbles" id="bubblesContainer" aria-live="polite" aria-atomic="true"></div>
+        <div class="bubbles" id="bubblesContainer"></div>
 
         <h2>COUNTING DAYS</h2>
         <div class="countdown" id="countdown">
           <div><div class="num" id="days">0</div><div class="lbl">Hari</div></div>
-          <div><div class="num" id="hours">00</div><div class="lbl">Jam</div></div>
-          <div><div class="num" id="mins">00</div><div class="lbl">Minit</div></div>
-          <div><div class="num" id="secs">00</div><div class="lbl">Saat</div></div>
+          <div><div class="num" id="hours">0</div><div class="lbl">Jam</div></div>
+          <div><div class="num" id="mins">0</div><div class="lbl">Minit</div></div>
+          <div><div class="num" id="secs">0</div><div class="lbl">Saat</div></div>
         </div>
 
         <footer>Terima kasih — Kami hargai kehadiran dan doa anda.</footer>
@@ -149,51 +142,32 @@
     </section>
   </div>
 
-  <!-- contact card (shown when Call icon clicked) -->
-  <div class="contact-card" id="contactCard" role="dialog" aria-label="contact" style="display:none;">
+  <!-- contact card -->
+  <div class="contact-card" id="contactCard" role="dialog" aria-label="contact">
     <h3>CONTACT</h3>
     <div class="contact-list">
       <div class="contact-row">
-        <div class="contact-info">
-          <div class="name">Hj. Shuhaimi</div>
-          <div class="role">Bapa</div>
-        </div>
-        <div class="contact-actions">
-          <a href="https://wa.me/+60199150821" target="_blank" aria-label="whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
-          <a href="tel:+60199150821" aria-label="call"><i class="fa-solid fa-phone"></i></a>
-        </div>
+        <div class="contact-info"><div class="name">Hj. Shuhaimi</div><div class="role">Bapa</div></div>
+        <div class="contact-actions"><a href="https://wa.me/+60199150821" target="_blank" aria-label="whatsapp"><i class="fa-brands fa-whatsapp"></i></a><a href="tel:+60199150821" aria-label="call"><i class="fa-solid fa-phone"></i></a></div>
       </div>
-
       <div class="contact-row">
-        <div class="contact-info">
-          <div class="name">Syafiq</div>
-          <div class="role">Abang</div>
-        </div>
-        <div class="contact-actions">
-          <a href="https://wa.me/+60104070205" target="_blank" aria-label="whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
-          <a href="tel:+60104070205" aria-label="call"><i class="fa-solid fa-phone"></i></a>
-        </div>
+        <div class="contact-info"><div class="name">Syafiq</div><div class="role">Abang</div></div>
+        <div class="contact-actions"><a href="https://wa.me/+60104070205" target="_blank" aria-label="whatsapp"><i class="fa-brands fa-whatsapp"></i></a><a href="tel:+60104070205" aria-label="call"><i class="fa-solid fa-phone"></i></a></div>
       </div>
-
       <div class="contact-row">
-        <div class="contact-info">
-          <div class="name">Amalina</div>
-          <div class="role">Kakak</div>
-        </div>
-        <div class="contact-actions">
-          <a href="https://wa.me/+601137426966" target="_blank" aria-label="whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
-          <a href="tel:+601137426966" aria-label="call"><i class="fa-solid fa-phone"></i></a>
-        </div>
+        <div class="contact-info"><div class="name">Amalina</div><div class="role">Kakak</div></div>
+        <div class="contact-actions"><a href="https://wa.me/+601137426966" target="_blank" aria-label="whatsapp"><i class="fa-brands fa-whatsapp"></i></a><a href="tel:+601137426966" aria-label="call"><i class="fa-solid fa-phone"></i></a></div>
       </div>
     </div>
   </div>
 
+  <!-- bottom bar -->
   <div class="bottom-bar" role="navigation" aria-label="tindakan">
-    <div class="icon-btn" id="callBtn" aria-label="panggil"><i class="fa-solid fa-phone"></i><span>Hubungi</span></div>
+    <div class="icon-btn" id="callBtn"><i class="fa-solid fa-phone"></i><span>Hubungi</span></div>
 
-    <div class="icon-btn" id="mapBtn" aria-label="lokasi">
+    <div class="icon-btn" id="mapBtn">
       <i class="fa-solid fa-location-dot"></i><span>Lokasi</span>
-      <div class="map-popup" id="mapPopup" style="display:none;position:absolute;bottom:70px;left:50%;transform:translateX(-50%);background:#e8dcc6;color:#222;padding:12px;border-radius:12px;width:280px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.12);">
+      <div class="map-popup" id="mapPopup" style="display:none;position:absolute;bottom:70px;left:50%;transform:translateX(-50%);background:#e8dcc6;color:#222;padding:12px;border-radius:12px;width:260px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.12);">
         <h4 style="margin:0 0 6px;font-family:'Playfair Display',serif;color:#1f1f1f">Lokasi</h4>
         <p style="margin:0 0 10px;font-size:14px;color:#6b5f50">White House Event Space, Dungun</p>
         <a href="https://maps.app.goo.gl/Z2F3c86dVen1ciR29" target="_blank" style="display:flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;text-decoration:none;padding:8px;border-radius:8px;margin:6px auto;max-width:200px;gap:8px"><i class="fa-solid fa-map-location-dot"></i><span>Google Maps</span></a>
@@ -201,24 +175,23 @@
       </div>
     </div>
 
-    <div class="icon-btn" id="bottomRsvpBtn" aria-label="rsvp"><i class="fa-regular fa-envelope"></i><span>RSVP</span></div>
+    <div class="icon-btn" id="bottomRsvpBtn"><i class="fa-regular fa-envelope"></i><span>RSVP</span></div>
   </div>
 
   <!-- popup small for RSVP choices -->
-  <div id="popupRsvp" class="map-popup" style="display:none;position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#e8dcc6;color:#222;padding:12px;border-radius:12px;width:260px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.12);z-index:200;">
+  <div id="popupRsvp" class="map-popup" style="display:none;position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#e8dcc6;color:#222;padding:12px;border-radius:12px;width:260px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.12);">
     <h4 style="margin:0 0 6px;font-family:'Playfair Display',serif;color:#1f1f1f">RSVP</h4>
     <p style="margin:0 0 10px;font-size:14px;color:#6b5f50">Pilih tindakan untuk RSVP atau hantarkan ucapan.</p>
     <a id="openExternalRsvp" href="#" style="display:flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;text-decoration:none;padding:8px;border-radius:8px;margin:6px auto;max-width:200px;gap:8px"><i class="fa-solid fa-clipboard-list"></i><span>Isi RSVP</span></a>
     <a id="openUcapan" href="#" style="display:flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;text-decoration:none;padding:8px;border-radius:8px;margin:6px auto;max-width:200px;gap:8px"><i class="fa-solid fa-pencil"></i><span>Hantar Ucapan</span></a>
   </div>
 
-  <!-- RSVP iframe-like popup -->
-  <div id="popupRsvpIframe" class="map-popup" style="display:none;position:fixed;bottom:70px;left:50%;transform:translateX(-50%);background:#e8dcc6;color:#222;padding:12px;border-radius:12px;width:95%;max-width:420px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.12);z-index:210;">
+  <!-- popup iframe RSVP (uses form POST via hidden iframe to avoid CORS preflight) -->
+  <div id="popupRsvpIframe" class="map-popup" style="display:none;position:fixed;bottom:70px;left:50%;transform:translateX(-50%);background:#e8dcc6;color:#222;padding:12px;border-radius:12px;width:95%;max-width:420px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.12);z-index:1000;">
     <h4 style="margin:0 0 6px;font-family:'Playfair Display',serif;color:#1f1f1f">Isi RSVP</h4>
     <p style="margin:0 0 10px;font-size:14px;color:#6b5f50">Sila lengkapkan borang di bawah.</p>
     <button id="closeRsvpIframe" aria-label="Tutup" style="position:absolute;top:10px;right:12px;background:transparent;border:none;font-size:20px;color:#333;cursor:pointer;z-index:1001">&times;</button>
 
-    <!-- FORM -->
     <form id="rsvpInlineForm" style="display:flex;flex-direction:column;gap:8px;margin-top:6px;">
       <input id="rsvp_nama" name="nama" type="text" placeholder="Nama penuh" required style="padding:10px;border-radius:8px;border:1px solid #ddd;font-size:14px" />
       <input id="rsvp_jumlah" name="jumlah" type="number" min="1" placeholder="Bilangan ahli (cth: 2)" value="1" required style="padding:10px;border-radius:8px;border:1px solid #ddd;font-size:14px" />
@@ -233,55 +206,44 @@
     <div id="rsvpStatus" style="margin-top:8px;font-size:13px;color:#333;display:none"></div>
   </div>
 
-  <!-- ucapan small popup -->
-  <div id="ucapanForm" class="map-popup" aria-label="ucapan" style="display:none;position:fixed;bottom:70px;left:50%;transform:translateX(-50%);background:#e8dcc6;color:#222;padding:12px;border-radius:12px;width:95%;max-width:420px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.12);z-index:220;">
+  <!-- ucapan form -->
+  <div id="ucapanForm" class="map-popup" aria-label="ucapan" style="display:none;position:fixed;bottom:70px;left:50%;transform:translateX(-50%);background:#e8dcc6;color:#222;padding:12px;border-radius:12px;width:95%;max-width:420px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.12);z-index:1000;">
     <h4 style="margin:0 0 6px;font-family:'Playfair Display',serif;color:#1f1f1f">Hantar Ucapan</h4>
     <p style="margin:0 0 10px;font-size:14px;color:#6b5f50">Tulis nama dan ucapan anda untuk Isma &amp; Fikri.</p>
     <button id="closeUcapanBtn" aria-label="Tutup" style="position:absolute;top:10px;right:12px;background:transparent;border:none;font-size:20px;color:#333;cursor:pointer;z-index:1001">&times;</button>
     <input id="ucap_name" type="text" placeholder="Nama anda" style="width:100%;padding:8px;border-radius:8px;border:1px solid #ddd;margin-bottom:8px">
     <textarea id="ucap_text" placeholder="Ucapan untuk Isma & Fikri" rows="3" style="width:100%;padding:8px;border-radius:8px;border:1px solid #ddd;margin-bottom:8px"></textarea>
-    <a id="submitUcapan" href="#" style="display:flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;text-decoration:none;padding:10px;border-radius:10px;margin:6px auto;max-width:220px;gap:8px">Hantar</a>
+    <a id="submitUcapan" href="#" style="display:flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;text-decoration:none;padding:8px;border-radius:8px;margin:6px auto;max-width:200px;gap:8px">Hantar</a>
     <div id="ucapanStatus" style="margin-top:8px;font-size:13px;color:#333;display:none"></div>
   </div>
 
+  <!-- hidden iframe for form POST -->
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
 <script>
 (function(){
-
-  /* ====== CONFIG: letakkan Web App URL anda di sini ======
-     Gantikan jika deploy /exec URL anda berlainan.
-  */
+  // --------- CONFIG: ganti URL jika perlu ----------
+  const RSVP_WS_URL = 'https://script.google.com/macros/s/AKfycbzDYI9RXDgtm0E6Li32k8tpsgzYn9WKA3JATB5UUdNbd2cxXLLUM6ARSliRikx-Cx4d/exec';
   const UCAPAN_WS_URL = 'https://script.google.com/macros/s/AKfycbzDYI9RXDgtm0E6Li32k8tpsgzYn9WKA3JATB5UUdNbd2cxXLLUM6ARSliRikx-Cx4d/exec';
-  const RSVP_WS_URL = UCAPAN_WS_URL; // same webapp handles RSVP in Code.gs above
 
-  /* ---------- small helpers ---------- */
-  function escapeHtml(s){
-    if (typeof s !== 'string') return s||'';
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
-  }
+  // ---------- small helpers ----------
+  function escapeHtml(s){ if (typeof s !== 'string') return s||''; return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;'); }
+  function showStatus(el, msg, ok){ if(!el) return; el.style.display='block'; el.textContent = msg; el.style.color = ok ? '#0a7a00' : '#b21b1b'; }
 
-  async function safeJson(resp){
-    try { return await resp.json(); } catch(e){ return null; }
-  }
-
-  /* ---------- IMAGE MODAL ---------- */
+  // ---------- image modal ----------
   const images = document.querySelectorAll('.grid img');
   const imageModal = document.getElementById('imageModal');
   const modalImg = document.getElementById('modalImg');
   const imageModalClose = document.getElementById('imageModalClose');
-
   if(images && images.forEach){
-    images.forEach(function(img){
-      img.addEventListener('click', function(){
-        if(imageModal && modalImg){ modalImg.src = img.src; imageModal.style.display='block'; imageModal.setAttribute('aria-hidden','false'); }
-      });
-    });
+    images.forEach(function(img){ img.addEventListener('click', function(){ if(imageModal && modalImg){ modalImg.src = img.src; imageModal.style.display='block'; } }); });
   }
-  if(imageModalClose) imageModalClose.addEventListener('click', function(){ if(imageModal) { imageModal.style.display='none'; imageModal.setAttribute('aria-hidden','true'); } });
-  window.addEventListener('click', function(ev){ if(ev.target === imageModal) { imageModal.style.display='none'; imageModal.setAttribute('aria-hidden','true'); } });
+  if(imageModalClose) imageModalClose.addEventListener('click', function(){ if(imageModal) imageModal.style.display='none'; });
+  window.addEventListener('click', function(ev){ if(ev.target === imageModal) imageModal.style.display='none'; });
 
-  /* ---------- bottom bar handlers ---------- */
+  // ---------- bottom bar behaviour ----------
   const callBtn = document.getElementById('callBtn');
-  const mapBtnWrapper = document.getElementById('mapBtn');
+  const mapBtn = document.getElementById('mapBtn');
   const bottomRsvpBtn = document.getElementById('bottomRsvpBtn');
   const contactCard = document.getElementById('contactCard');
   const mapPopup = document.getElementById('mapPopup');
@@ -289,248 +251,168 @@
   const popupRsvpIframe = document.getElementById('popupRsvpIframe');
   const ucapanForm = document.getElementById('ucapanForm');
 
-  function hideAllPopups(){
-    [contactCard,mapPopup,popupRsvp,popupRsvpIframe,ucapanForm,imageModal].forEach(e=>{ if(e) e.style.display='none'; });
-  }
+  function hideAllPopups(){ [contactCard,mapPopup,popupRsvp,popupRsvpIframe,ucapanForm].forEach(e=>{ if(e) e.style.display='none'; }); }
 
-  if(callBtn){
-    callBtn.addEventListener('click', function(e){ e.stopPropagation(); hideAllPopups(); contactCard.style.display = (contactCard.style.display === 'block') ? 'none' : 'block'; });
-  }
-  if(mapBtnWrapper){
-    mapBtnWrapper.addEventListener('click', function(e){ e.stopPropagation(); hideAllPopups(); mapPopup.style.display = (mapPopup.style.display === 'block') ? 'none' : 'block'; });
-  }
-  if(bottomRsvpBtn){
-    bottomRsvpBtn.addEventListener('click', function(e){ e.stopPropagation(); hideAllPopups(); popupRsvp.style.display = (popupRsvp.style.display === 'block') ? 'none' : 'block'; });
-  }
+  if(callBtn) callBtn.addEventListener('click', function(e){ e.stopPropagation(); hideAllPopups(); contactCard.style.display = (contactCard.style.display==='block')? 'none':'block'; });
+  if(mapBtn) mapBtn.addEventListener('click', function(e){ e.stopPropagation(); hideAllPopups(); mapPopup.style.display = (mapPopup.style.display==='block')? 'none':'block'; });
+  if(bottomRsvpBtn) bottomRsvpBtn.addEventListener('click', function(e){ e.stopPropagation(); hideAllPopups(); popupRsvp.style.display = (popupRsvp.style.display==='block')? 'none':'block'; });
 
   document.addEventListener('click', function(e){
-    const popupEls = [contactCard, mapPopup, popupRsvp, popupRsvpIframe, ucapanForm, imageModal];
+    const popupEls = [contactCard,mapPopup,popupRsvp,popupRsvpIframe,ucapanForm];
     let inside=false;
     popupEls.forEach(p=>{ if(p && p.contains && p.contains(e.target)) inside=true; });
-    const btns = [callBtn, mapBtnWrapper, bottomRsvpBtn];
-    btns.forEach(b => { if(b && (b === e.target || b.contains(e.target))) inside=true; });
+    const btns=[callBtn,mapBtn,bottomRsvpBtn];
+    btns.forEach(b=>{ if(b && (b===e.target || b.contains(e.target))) inside=true; });
     if(!inside) hideAllPopups();
   });
 
-  /* ---------- ucapan: load from server (fetch -> JSONP fallback) ---------- */
+  // open external rsvp iframe & ucapan toggles
+  const openExternalRsvp = document.getElementById('openExternalRsvp');
+  const openUcapanBtn = document.getElementById('openUcapan');
+  if(openExternalRsvp) openExternalRsvp.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); popupRsvp.style.display='none'; popupRsvpIframe.style.display = (popupRsvpIframe.style.display==='block')? 'none':'block'; });
+  if(openUcapanBtn) openUcapanBtn.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); popupRsvp.style.display='none'; ucapanForm.style.display = (ucapanForm.style.display==='block')? 'none':'block'; const el = document.getElementById('ucap_name'); if(el) el.focus(); });
+
+  // close popup buttons
+  const closeRsvpIframe = document.getElementById('closeRsvpIframe');
+  if(closeRsvpIframe) closeRsvpIframe.addEventListener('click', function(e){ e.stopPropagation(); popupRsvpIframe.style.display='none'; });
+
+  const closeUcapanBtn = document.getElementById('closeUcapanBtn');
+  if(closeUcapanBtn) closeUcapanBtn.addEventListener('click', function(e){ e.stopPropagation(); ucapanForm.style.display='none'; });
+
+  // ---------- JSONP loader for ucapan list ----------
   const bubblesContainer = document.getElementById('bubblesContainer');
+  window.__ucapan_jsonp_cb = function(data){
+    try {
+      if(!data || !Array.isArray(data.items)) return;
+      renderUcapanList(data.items);
+    } catch(e){ console.warn('jsonp cb error', e); }
+  };
 
-  // parse response tolerant to a few shapes
+  function loadUcapan_JSONP_thenRender(){
+    const cbName = '__ucapan_jsonp_cb';
+    const src = UCAPAN_WS_URL + (UCAPAN_WS_URL.indexOf('?') === -1 ? '?' : '&') + 'api=ucapan&callback=' + cbName + '&_=' + Date.now();
+    const s = document.createElement('script');
+    s.src = src;
+    s.onerror = function(){ console.warn('JSONP load error for', src); s.remove(); };
+    document.body.appendChild(s);
+    setTimeout(()=>{ try{ document.body.removeChild(s); }catch(e){} }, 9000);
+  }
+
   function renderUcapanList(items){
-    if(!bubblesContainer) return;
-    bubblesContainer.innerHTML = '';
-    if(!Array.isArray(items)) return;
-    items.forEach(it => {
-      const name = it.nama || it.Nama || '';
-      const msg  = it.ucapan || it.Ucapan || '';
-      const ts   = it.timestamp || it.Timestamp || '';
-      const timeLabel = ts ? new Date(ts).toLocaleString() : '';
-      const bubble = document.createElement('div');
-      bubble.className = 'bubble';
-      bubble.innerHTML = '<div class="meta">'+escapeHtml(name)+' • <span style="font-size:11px;color:#999">'+escapeHtml(timeLabel)+'</span></div><div class="msg">'+escapeHtml(msg)+'</div>';
-      bubblesContainer.appendChild(bubble);
-    });
-  }
-
-  // attempt GET fetch
-  async function fetchUcapanOnce(){
-    const url = UCAPAN_WS_URL + '?api=ucapan';
     try {
-      const resp = await fetch(url, { method:'GET', cache:'no-cache' });
-      const j = await safeJson(resp);
-      if(j && j.status === 'success' && Array.isArray(j.items)){
-        renderUcapanList(j.items);
-        return true;
-      }
-      if(Array.isArray(j)){ renderUcapanList(j); return true; }
-    } catch(err){
-      console.warn('fetchUcapanOnce failed (CORS or network):', err);
-    }
-    return false;
-  }
-
-  // JSONP fallback
-  function jsonpLoadUcapan(){
-    return new Promise((resolve, reject) => {
-      const cbName = 'ucapanCb_' + Math.floor(Math.random()*1e9);
-      window[cbName] = function(payload){
-        try {
-          if(payload && payload.status === 'success' && Array.isArray(payload.items)){
-            renderUcapanList(payload.items);
-            resolve(true);
-            return;
-          } else if(Array.isArray(payload)){
-            renderUcapanList(payload);
-            resolve(true);
-            return;
-          } else {
-            console.warn('jsonp returned unexpected payload', payload);
-            resolve(false);
-            return;
-          }
-        } finally {
-          delete window[cbName];
-          const scr = document.getElementById(cbName);
-          if(scr) scr.remove();
-        }
-      };
-      const s = document.createElement('script');
-      s.id = cbName;
-      s.src = UCAPAN_WS_URL + '?api=ucapan&callback=' + cbName;
-      s.onerror = function(){
-        delete window[cbName];
-        s.remove();
-        reject(new Error('JSONP load error'));
-      };
-      document.body.appendChild(s);
-    });
-  }
-
-  // wrapper: try fetch -> fallback to jsonp
-  async function loadUcapanFromServer(){
-    const ok = await fetchUcapanOnce();
-    if(ok) return true;
-    try {
-      const j = await jsonpLoadUcapan();
-      return !!j;
-    } catch(e){
-      console.warn('loadUcapanFromServer: JSONP also failed', e);
-      return false;
-    }
+      bubblesContainer.innerHTML = '';
+      items.forEach(it => {
+        const nama = it.nama || it.Nama || '';
+        const ucapan = it.ucapan || it.Ucapan || it.message || '';
+        const ts = it.timestamp || it.Timestamp || '';
+        const bubble = document.createElement('div'); bubble.className='bubble';
+        const timeLabel = ts ? (new Date(ts)).toLocaleString() : (new Date()).toLocaleString();
+        bubble.innerHTML = '<div class="meta">'+escapeHtml(nama)+' • <span style="font-size:11px;color:#999">'+escapeHtml(timeLabel)+'</span></div><div class="msg">'+escapeHtml(ucapan)+'</div>';
+        bubblesContainer.appendChild(bubble);
+      });
+    } catch(e){ console.warn('renderUcapanList error', e); }
   }
 
   // initial load
-  loadUcapanFromServer().catch(e=>console.warn('Initial load failed', e));
+  loadUcapan_JSONP_thenRender();
 
-  /* ---------- ucapan submit ---------- */
-  const submitUcapan = document.getElementById('submitUcapan');
-  const ucapanStatus = document.getElementById('ucapanStatus');
-  const closeUcapanBtn = document.getElementById('closeUcapanBtn');
-
-  if(closeUcapanBtn) closeUcapanBtn.addEventListener('click', function(e){ e.stopPropagation(); ucapanForm.style.display = 'none'; });
-
-  async function postUcapan(payload){
+  // ---------- postFormNoCORS: submit via hidden form -> target iframe ----------
+  function postFormNoCORS(url, data, callback) {
     try {
-      const body = new URLSearchParams();
-      body.append('type','ucapan');
-      body.append('nama', payload.nama);
-      body.append('ucapan', payload.ucapan);
-      if(payload.timestamp) body.append('timestamp', payload.timestamp);
-      const resp = await fetch(UCAPAN_WS_URL, {
-        method:'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-        body: body.toString()
-      });
-      const j = await safeJson(resp);
-      return j || { status: 'error', message: 'No JSON' };
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = url;
+      form.target = 'hidden_iframe';
+      form.style.display = 'none';
+      for(const k in data){
+        if(!Object.prototype.hasOwnProperty.call(data,k)) continue;
+        const inp = document.createElement('input');
+        inp.type = 'hidden';
+        inp.name = k;
+        inp.value = data[k];
+        form.appendChild(inp);
+      }
+      document.body.appendChild(form);
+
+      const iframe = document.getElementById('hidden_iframe');
+      function onLoad(){
+        try { iframe.removeEventListener('load', onLoad); } catch(e){}
+        setTimeout(()=>{ if(typeof callback === 'function') callback(true); try{ document.body.removeChild(form); }catch(e){} }, 300);
+      }
+      iframe.addEventListener('load', onLoad);
+      form.submit();
+
+      setTimeout(()=>{ try{ iframe.removeEventListener('load', onLoad);}catch(e){}; if(typeof callback === 'function') callback(false); try{ document.body.removeChild(form);}catch(e){} }, 8000);
     } catch(err){
-      console.warn('postUcapan error', err);
-      return { status:'error', message: (err && err.message) ? err.message : 'Network error' };
+      console.warn('postFormNoCORS error', err);
+      if(typeof callback === 'function') callback(false);
     }
   }
 
+  // ---------- RSVP submit (uses postFormNoCORS) ----------
+  const rsvpForm = document.getElementById('rsvpInlineForm');
+  const rsvpStatus = document.getElementById('rsvpStatus');
+  if (rsvpForm){
+    rsvpForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (rsvpStatus) rsvpStatus.style.display='none';
+      const nama = (document.getElementById('rsvp_nama')||{}).value.trim();
+      const jumlah = (document.getElementById('rsvp_jumlah')||{}).value.trim();
+      const hadir = (rsvpForm.querySelector('input[name="hadir"]:checked')||{}).value || '';
+
+      if(!nama || !jumlah){ showStatus(rsvpStatus, 'Sila lengkapkan nama dan jumlah ahli.', false); return; }
+
+      showStatus(rsvpStatus, 'Menghantar...', true);
+      const payload = { nama: nama, jumlah: jumlah, hadir: hadir, type: 'rsvp' };
+
+      postFormNoCORS(RSVP_WS_URL, payload, function(ok){
+        if(ok){ showStatus(rsvpStatus, 'RSVP dihantar. Terima kasih!', true); try{ rsvpForm.reset(); }catch(e){} setTimeout(()=>{ popupRsvpIframe.style.display='none'; }, 800); }
+        else { showStatus(rsvpStatus, 'Gagal hantar RSVP. Sila cuba semula.', false); }
+      });
+    });
+  }
+
+  // ---------- Ucapan submit ----------
+  const submitUcapan = document.getElementById('submitUcapan');
+  const ucapanStatus = document.getElementById('ucapanStatus');
   if(submitUcapan){
-    submitUcapan.addEventListener('click', async function(e){
-      e.preventDefault(); e.stopPropagation();
+    submitUcapan.addEventListener('click', function(e){
+      e.preventDefault();
       const nameEl = document.getElementById('ucap_name');
       const textEl = document.getElementById('ucap_text');
       const name = nameEl ? nameEl.value.trim() : '';
       const text = textEl ? textEl.value.trim() : '';
-      if(!name || !text){ alert('Sila isi nama dan ucapan.'); return; }
+      if(!name || !text){ showStatus(ucapanStatus, 'Sila isi nama dan ucapan.', false); return; }
 
-      // optimistic UI: show bubble immediately
-      const tsNow = new Date().toISOString();
-      const optBubble = document.createElement('div'); optBubble.className = 'bubble';
-      optBubble.innerHTML = '<div class="meta">'+escapeHtml(name)+' • <span style="font-size:11px;color:#999">'+(new Date(tsNow)).toLocaleString()+'</span></div><div class="msg">'+escapeHtml(text)+'</div>';
-      if(bubblesContainer) bubblesContainer.insertBefore(optBubble, bubblesContainer.firstChild);
+      // optimistic bubble
+      try {
+        const tsNow = new Date().toISOString();
+        const container = document.getElementById('bubblesContainer');
+        const bubble = document.createElement('div'); bubble.className = 'bubble';
+        bubble.innerHTML = '<div class="meta">'+escapeHtml(name)+' • <span style="font-size:11px;color:#999">'+(new Date(tsNow)).toLocaleString()+'</span></div><div class="msg">'+escapeHtml(text)+'</div>';
+        if(container) container.insertBefore(bubble, container.firstChild);
+      } catch(e){ console.warn(e); }
 
-      // disable button while sending
-      submitUcapan.style.pointerEvents = 'none';
-      submitUcapan.style.opacity = '0.6';
+      // send to server via hidden form POST
+      const payload = { nama: name, ucapan: text, timestamp: new Date().toISOString(), type: 'ucapan' };
+      postFormNoCORS(UCAPAN_WS_URL, payload, function(ok){
+        if(ok){
+          showStatus(ucapanStatus, 'Ucapan dihantar dan disimpan.', true);
+          setTimeout(loadUcapan_JSONP_thenRender, 350);
+        } else {
+          showStatus(ucapanStatus, 'Ucapan dipaparkan tetapi tidak dapat disahkan oleh server.', false);
+        }
+      });
 
-      const result = await postUcapan({ nama: name, ucapan: text, timestamp: tsNow });
-
-      // try to refresh authoritative list (fetch -> jsonp)
-      const refreshed = await loadUcapanFromServer();
-
-      // reset fields & UI
+      // cleanup UI
       if(nameEl) nameEl.value='';
       if(textEl) textEl.value='';
-      submitUcapan.style.pointerEvents = 'auto';
-      submitUcapan.style.opacity = '1';
-      setTimeout(()=>{ ucapanForm.style.display = 'none'; }, 500);
-
-      if(result && result.status === 'success'){
-        if(!refreshed){
-          // server accepted but client couldn't refresh; keep optimistic bubble (it's already visible)
-          alert('Ucapan dihantar. Paparan akan dikemaskini pada muat semula.');
-        } else {
-          // refreshed: authoritative list rendered, so remove optimistic duplicate if any
-          // (loadUcapanFromServer already cleared and re-rendered)
-        }
-      } else {
-        // show message and keep optimistic bubble (local) so visitor sees it
-        alert('Ucapan ditambah ke skrin tetapi tidak dapat disahkan oleh server: ' + (result && result.message ? result.message : 'Ralat'));
-      }
+      if(ucapanForm) ucapanForm.style.display='none';
     });
   }
 
-  /* ---------- RSVP submit (uses same WS) ---------- */
-  const rsvpForm = document.getElementById('rsvpInlineForm');
-  const rsvpStatus = document.getElementById('rsvpStatus');
-  const closeRsvpIframe = document.getElementById('closeRsvpIframe');
-
-  if(closeRsvpIframe) closeRsvpIframe.addEventListener('click', e=> { e.stopPropagation(); popupRsvpIframe.style.display='none'; });
-
-  if(rsvpForm){
-    rsvpForm.addEventListener('submit', async function(e){
-      e.preventDefault();
-      if(rsvpStatus) rsvpStatus.style.display='none';
-      const nama = document.getElementById('rsvp_nama').value.trim();
-      const jumlah = document.getElementById('rsvp_jumlah').value;
-      const hadir = (rsvpForm.querySelector('input[name="hadir"]:checked')||{}).value || '';
-      if(!nama || !jumlah){ if(rsvpStatus) { rsvpStatus.style.display='block'; rsvpStatus.textContent='Sila lengkapkan nama dan jumlah ahli.'; rsvpStatus.style.color='#b21b1b'; } return; }
-
-      // send as urlencoded
-      try {
-        const body = new URLSearchParams();
-        body.append('type','rsvp');
-        body.append('nama', nama);
-        body.append('jumlah', jumlah);
-        body.append('hadir', hadir);
-        const res = await fetch(RSVP_WS_URL, { method:'POST', headers:{ 'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8' }, body: body.toString() });
-        const j = await safeJson(res);
-        if(j && j.status === 'success'){
-          if(rsvpStatus){ rsvpStatus.style.display='block'; rsvpStatus.textContent = j.message || 'RSVP diterima.'; rsvpStatus.style.color = '#0a7a00'; }
-          rsvpForm.reset();
-          setTimeout(()=>{ popupRsvpIframe.style.display='none'; }, 900);
-        } else {
-          if(rsvpStatus){ rsvpStatus.style.display='block'; rsvpStatus.textContent = 'Gagal hantar RSVP.'; rsvpStatus.style.color = '#b21b1b'; }
-        }
-      } catch(err){
-        console.warn('rsvp submit error', err);
-        if(rsvpStatus){ rsvpStatus.style.display='block'; rsvpStatus.textContent = 'Ralat rangkaian. Sila cuba semula.'; rsvpStatus.style.color = '#b21b1b'; }
-      }
-    });
-  }
-
-  /* ---------- popup controls (open external rsvp & ucapan) ---------- */
-  const openExternal = document.getElementById('openExternalRsvp');
-  const openUcapan = document.getElementById('openUcapan');
-
-  if(openExternal) openExternal.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); popupRsvp.style.display='none'; popupRsvpIframe.style.display = (popupRsvpIframe.style.display === 'block') ? 'none' : 'block'; });
-  if(openUcapan) openUcapan.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); popupRsvp.style.display='none'; ucapanForm.style.display = (ucapanForm.style.display === 'block') ? 'none' : 'block'; setTimeout(()=>{ const el = document.getElementById('ucap_name'); if(el) el.focus(); }, 60); });
-
-  // popup open from bottom bar direct
-  const openUcapanBtn = document.getElementById('openUcapan'); // reused
-
-  // close ucapan small popup
-  const closeUcapanSmall = document.getElementById('closeUcapanBtn');
-  if(closeUcapanSmall) closeUcapanSmall.addEventListener('click', e => { e.stopPropagation(); ucapanForm.style.display = 'none'; });
-
-  /* ---------- countdown ---------- */
+  // ---------- countdown ----------
   function pad(n){ return String(n).padStart(2,'0'); }
-  // event datetime (local) - adjust if needed
   const eventDate = new Date('2026-01-03T11:00:00+08:00');
   function updateCountdown(){
     const now = new Date();
@@ -550,8 +432,8 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  /* expose openRsvpPopup for external use */
-  window.openRsvpPopup = function(){ popupRsvpIframe.style.display='block'; setTimeout(()=>{ const el=document.getElementById('rsvp_nama'); if(el) el.focus(); }, 80); };
+  // expose reload function for debugging
+  window.reloadUcapan = function(){ loadUcapan_JSONP_thenRender(); };
 
 })();
 </script>
