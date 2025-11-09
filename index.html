@@ -1,137 +1,213 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ms">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jemputan Perkahwinan Ismahani & Fikri</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jemputan — Isma & Fikri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      background: #fff0f5;
-      font-family: 'Segoe UI', sans-serif;
-      color: #4a2c2a;
-    }
-    .hero {
-      background: url('https://via.placeholder.com/800x500?text=Gambar+Pasangan') no-repeat center center;
-      background-size: cover;
-      height: 100vh;
-      position: relative;
-    }
-
-       .overlay {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            padding: 3rem;
-            margin: 2rem auto;
-            max-width: 700px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-       }
-    .overlay {
-      background: rgba(255, 255, 255, 0.8);
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      padding: 2rem;
-    }
-    .section {
-      padding: 4rem 2rem;
-    }
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-    }
-    .btn-pink {
-      background-color: #ffc0cb;
-      color: white;
-      border: none;
-    }
-    iframe {
-      width: 100%;
-      border: none;
-      height: 300px;
-    }
+    :root{--accent:#a67c52;--muted:#6b7280}
+    body{font-family:'Poppins',sans-serif;background:#f8f6f4;margin:0;padding:16px}
+    .card{max-width:480px;margin:10px auto;background:#fff;padding:16px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.06)}
+    .bubbles{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+    .bubble{background:#fff4e9;border:1px solid #f0e1cf;padding:10px;border-radius:14px}
+    .meta{font-weight:600;font-size:13px;color:#333;margin-bottom:6px}
+    .msg{font-size:14px;color:#222}
+    .controls{display:flex;gap:8px;margin-top:10px}
+    input, textarea {width:100%;padding:8px;border-radius:8px;border:1px solid #ddd;font-size:14px}
+    .btn{background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;border:none;cursor:pointer}
+    .status{font-size:13px;color:#333;margin-top:8px;display:none}
   </style>
 </head>
 <body>
-  <div class="hero">
-    <div class="overlay">
-      <h1 class="display-4">Siti Ismahani Izzati & Muhammad Fikri</h1>
-      <p class="lead">1 - 3 Januari 2026 | Rumah Pengantin Perempuan</p>
-      <a href="#details" class="btn btn-pink mt-3">Lihat Jemputan</a>
+  <div class="card">
+    <h2>Ucapan untuk Isma & Fikri</h2>
+    <div id="bubblesContainer" class="bubbles" aria-live="polite"></div>
+
+    <div style="margin-top:12px">
+      <input id="ucap_name" placeholder="Nama anda" />
+      <textarea id="ucap_text" rows="3" placeholder="Tulis ucapan..."></textarea>
+      <div class="controls">
+        <button id="submitUcapan" class="btn">Hantar Ucapan</button>
+        <button id="refreshBtn" class="btn" style="background:#6b7280">Refresh</button>
+      </div>
+      <div id="status" class="status"></div>
     </div>
   </div>
 
-  <section class="section bg-white text-center" id="details">
-    <h2 class="section-title">Aturcara Majlis</h2>
-    <div class="container">
-      <ul class="list-unstyled">
-        <li><strong>Malam Berinai:</strong> Khamis, 1 Januari 2026</li>
-        <li><strong>Akad Nikah:</strong> Jumaat, 2 Januari 2026</li>
-        <li><strong>Majlis Bersanding:</strong> Sabtu, 3 Januari 2026</li>
-      </ul>
-    </div>
-  </section>
+<script>
+(function(){
+  // ====== CONFIG: GANTI ke URL web app anda selepas deploy ======
+  const UCAPAN_WS_URL = 'https://script.google.com/macros/s/AKfycbxtCQBrjwa83H4pwGzuvJVKaPJdWlQLX7U_PFo8G2MNx1V5RlsdGIvDCMtsJqBK2BAt/exec';
+  // =============================================================
 
-  <section class="section bg-light text-center">
-    <h2 class="section-title">Lokasi</h2>
-    <div class="container">
-      <p>Rumah pengantin perempuan<br/>Koordinat: 4°36'58.8"N 103°26'32.4"E</p>
-      <iframe src="https://www.google.com/maps?q=4.616333,103.442333&output=embed"></iframe>
-    </div>
-  </section>
+  const bubblesContainer = document.getElementById('bubblesContainer');
+  const submitBtn = document.getElementById('submitUcapan');
+  const refreshBtn = document.getElementById('refreshBtn');
+  const statusEl = document.getElementById('status');
+  const nameEl = document.getElementById('ucap_name');
+  const textEl = document.getElementById('ucap_text');
 
-  <section class="section bg-white text-center">
-    <h2 class="section-title">RSVP</h2>
-    <div class="container">
-      <form>
-        <div class="mb-3">
-          <input type="text" class="form-control" placeholder="Nama Penuh" required>
-        </div>
-        <div class="mb-3">
-          <input type="number" class="form-control" placeholder="Jumlah Kehadiran" required>
-        </div>
-        <div class="mb-3">
-          <select class="form-select">
-            <option value="">Pilih majlis yang dihadiri</option>
-            <option value="berinai">Malam Berinai</option>
-            <option value="akad">Akad Nikah</option>
-            <option value="sanding">Majlis Bersanding</option>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-pink">Hantar RSVP</button>
-      </form>
-    </div>
-  </section>
+  function escapeHtml(s){ if(typeof s!=='string') return s||''; return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;'); }
+  function showStatus(msg,ok){ statusEl.style.display='block'; statusEl.textContent=msg; statusEl.style.color = ok ? '#0a7a00' : '#b21b1b'; }
 
-  <section class="section bg-light text-center">
-    <h2 class="section-title">Ucapan & Doa</h2>
-    <div class="container">
-      <form>
-        <div class="mb-3">
-          <textarea class="form-control" rows="4" placeholder="Ucapan anda..." required></textarea>
-        </div>
-        <button type="submit" class="btn btn-pink">Hantar Ucapan</button>
-      </form>
-    </div>
-  </section>
+  // dedupe by concat(name|text|timestamp)
+  const seen = new Set();
+  function addBubble(nama, ucapan, ts, prepend=true){
+    const key = (nama||'') + '|' + (ucapan||'') + '|' + (ts||'');
+    if(seen.has(key)) return;
+    seen.add(key);
+    const el = document.createElement('div'); el.className='bubble';
+    const timeLabel = ts ? (new Date(ts)).toLocaleString() : (new Date()).toLocaleString();
+    el.innerHTML = '<div class="meta">'+escapeHtml(nama)+' • <span style="font-size:11px;color:#666">'+timeLabel+'</span></div><div class="msg">'+escapeHtml(ucapan)+'</div>';
+    if(prepend && bubblesContainer.firstChild) bubblesContainer.insertBefore(el, bubblesContainer.firstChild);
+    else bubblesContainer.appendChild(el);
+  }
 
-  <footer class="text-center py-4 bg-white">
-    <p class="mb-0">&copy; 2026 Siti Ismahani & Fikri | Dibuat dengan Kasih Sayang</p>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.querySelectorAll('form').forEach(form => {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Terima kasih atas respon anda!');
-        form.reset();
-      });
+  // JSONP helper
+  const JSONP_CB = '__uc_' + (Math.random()*1e9|0);
+  function jsonpGet(url, timeout = 10000){
+    return new Promise((resolve,reject)=>{
+      const cb = JSONP_CB;
+      window[cb] = function(data){ cleanup(); resolve(data); };
+      const s = document.createElement('script');
+      const sep = url.includes('?') ? '&' : '?';
+      s.src = url + sep + '_t=' + Date.now() + '&callback=' + cb;
+      s.async = true;
+      s.onerror = function(){ cleanup(); reject(new Error('JSONP load error')); };
+      const timer = setTimeout(()=>{ cleanup(); reject(new Error('JSONP timeout')); }, timeout);
+      function cleanup(){ clearTimeout(timer); try{ document.head.removeChild(s); }catch(e){} try{ delete window[cb]; }catch(e){} }
+      document.head.appendChild(s);
     });
-  </script>
+  }
+
+  // render response object (items array or array-of-arrays)
+  function renderFromResponse(obj){
+    try {
+      if(!obj) return false;
+      let items = null;
+      if(Array.isArray(obj)) items = obj;
+      else if(obj.items && Array.isArray(obj.items)) items = obj.items;
+      else {
+        // look for first array value
+        items = Object.values(obj).find(v => Array.isArray(v)) || null;
+      }
+      if(!items) return false;
+      // clear seen and container then render
+      bubblesContainer.innerHTML = '';
+      seen.clear();
+      items.forEach(row=>{
+        if(Array.isArray(row)){
+          addBubble(row[1]||'', row[2]||'', row[0]||'', false);
+        } else if(typeof row === 'object' && row !== null){
+          addBubble(row.nama||'', row.ucapan||'', row.timestamp||'', false);
+        }
+      });
+      return true;
+    } catch(err){ console.warn('renderFromResponse err', err); return false; }
+  }
+
+  // load function: fetch -> proxy -> jsonp
+  async function loadUcapan(){
+    const url = UCAPAN_WS_URL + (UCAPAN_WS_URL.includes('?') ? '&' : '?') + 'api=ucapan';
+    // try fetch
+    try {
+      const r = await fetch(url, { method:'GET', cache:'no-cache' });
+      if(r && r.ok){
+        try { const j = await r.json(); console.log('fetch ok', j); renderFromResponse(j); return true; }
+        catch(e){ console.warn('fetch parse failed', e); }
+      } else console.warn('fetch not ok', r && r.status);
+    } catch(e){ console.warn('fetch failed (CORS?)', e); }
+    // try public proxy
+    try {
+      const proxy = 'https://api.allorigins.win/raw?url=';
+      const prox = proxy + encodeURIComponent(url);
+      const rp = await fetch(prox, { method:'GET', cache:'no-cache' });
+      if(rp && rp.ok){
+        try { const j2 = await rp.json(); console.log('proxy ok', j2); renderFromResponse(j2); return true; }
+        catch(e2){ console.warn('proxy parse failed', e2); }
+      } else console.warn('proxy not ok', rp && rp.status);
+    } catch(e){ console.warn('proxy failed', e); }
+    // JSONP fallback
+    try {
+      const j3 = await jsonpGet(url, 10000);
+      console.log('jsonp ok', j3);
+      renderFromResponse(j3);
+      return true;
+    } catch(e){ console.warn('jsonp failed', e); showStatus('Gagal memuatkan ucapan. Sila cuba semula kemudian.', false); return false; }
+  }
+
+  // helper: poll until our entry appears (check by timestamp)
+  function sleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
+  async function pollUntilSeen(checkFn, attempts=8){
+    const delays = [400,800,1200,1800,2500,3000,4000,6000];
+    for(let i=0;i<attempts;i++){
+      await sleep(delays[i]||2000);
+      await loadUcapan();
+      if(typeof checkFn === 'function' && checkFn()) return true;
+    }
+    return false;
+  }
+
+  // initial load
+  loadUcapan();
+
+  // submit handler
+  submitBtn.addEventListener('click', async function(e){
+    e.preventDefault();
+    const name = nameEl.value.trim();
+    const text = textEl.value.trim();
+    if(!name || !text){ showStatus('Sila isi nama dan ucapan.', false); return; }
+    showStatus('', true);
+
+    // optimistic add with unique timestamp
+    const ts = new Date().toISOString();
+    addBubble(name, text, ts, true);
+
+    // attempt POST (form-urlencoded then json)
+    let posted = false;
+    try {
+      const body = new URLSearchParams();
+      body.append('nama', name);
+      body.append('ucapan', text);
+      body.append('timestamp', ts);
+      body.append('type', 'ucapan');
+      const r = await fetch(UCAPAN_WS_URL, { method:'POST', headers:{ 'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8' }, body: body.toString() });
+      const j = await (r.ok ? r.json().catch(()=>null) : null);
+      if(r.ok && j && (j.status==='success' || j.result==='success')) posted = true;
+    } catch(err){ console.warn('POST form failed', err); }
+
+    if(!posted){
+      try {
+        const r2 = await fetch(UCAPAN_WS_URL, { method:'POST', headers:{ 'Content-Type':'application/json;charset=UTF-8' }, body: JSON.stringify({ nama: name, ucapan: text, timestamp: ts, type: 'ucapan' }) });
+        const j2 = await (r2.ok ? r2.json().catch(()=>null) : null);
+        if(r2.ok && j2 && (j2.status==='success' || j2.result==='success')) posted = true;
+      } catch(err2){ console.warn('POST json failed', err2); }
+    }
+
+    // poll until our timestamp present
+    const found = await pollUntilSeen(()=> {
+      // check seen set for our entry
+      const key = (name||'') + '|' + (text||'') + '|' + (ts||'');
+      return Array.from(document.querySelectorAll('.bubble')).some(b => b.textContent.includes(name) && b.textContent.includes(text) && b.textContent.includes(new Date(ts).toLocaleDateString()));
+    }, 8);
+
+    if(posted && found){
+      showStatus('Ucapan dihantar dan kini kelihatan pada peranti lain.', true);
+    } else if(posted && !found){
+      showStatus('Ucapan dihantar tetapi belum muncul pada GET. Sila refresh peranti lain.', false);
+    } else {
+      showStatus('Gagal hantar ucapan ke server. Ucapan dipaparkan sementara sahaja.', false);
+    }
+
+    // reset inputs
+    nameEl.value=''; textEl.value='';
+  });
+
+  refreshBtn.addEventListener('click', function(){ loadUcapan(); });
+
+})();
+</script>
 </body>
 </html>
