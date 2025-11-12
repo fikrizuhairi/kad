@@ -82,6 +82,30 @@
     @media (max-width:420px){.map-popup iframe{height:65vh;max-height:820px}}
 
     .map-popup{display:none;position:fixed;z-index:1000}
+
+    .bubbles {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 12px 0;
+  max-height: 300px;        /* tinggi maksimum — boleh ubah ikut citarasa */
+  overflow-y: auto;         /* aktifkan scroll menegak */
+  padding-right: 4px;       /* bagi ruang sikit supaya scrollbar tak himpit bubble */
+  scroll-behavior: smooth;  /* animasi scroll lebih lembut */
+}
+
+/* Optional: gaya scrollbar lembut (boleh buang jika tak mahu) */
+.bubbles::-webkit-scrollbar {
+  width: 6px;
+}
+.bubbles::-webkit-scrollbar-thumb {
+  background: #d1c3aa;
+  border-radius: 3px;
+}
+.bubbles::-webkit-scrollbar-track {
+  background: transparent;
+}
+    
   </style>
 </head>
 <body>
